@@ -1,0 +1,21 @@
+//@use "./../../../src/assets/images/styles/variables" as *;
+
+
+
+$primary-color:rgb(255, 168, 206);
+
+$secondary-color:rgb(237, 167, 255);
+$teriary-color:rgb(0, 93, 20);
+$quartenernary-color:rgb(255, 237, 237);
+$quinary-color:rgb(255, 168, 206);
+
+.checklist {
+    background-color: $quartenernary-color;
+
+    &__title {
+        background-color: $primary-color;
+        height: 30px;
+        display: flex;
+    }
+}
+
