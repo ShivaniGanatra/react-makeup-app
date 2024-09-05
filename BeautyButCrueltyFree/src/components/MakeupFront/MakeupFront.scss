@@ -1,0 +1,17 @@
+@import "./../../assets/styles/variables";
+
+
+
+
+.makeupFront {
+    background-color: $secondary-color;
+    width: 275px;
+    height: 400px;
+    border-radius: 10px;
+    padding: 10px;
+
+    &__image {
+        max-width: 200px;
+
+    }
+}

@@ -1,0 +1,9 @@
+@use "./../../assets/styles/variables" as *;
+
+.makeupBack {
+    background-color: $secondary-color;
+    width: 275px;
+    height: 400px;
+    border-radius: 10px;
+    padding: 10px;
+}

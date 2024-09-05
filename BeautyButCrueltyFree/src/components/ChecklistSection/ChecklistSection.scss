@@ -1,13 +1,8 @@
-//@use "./../../../src/assets/images/styles/variables" as *;
+@use "./../../assets/styles/variables" as *;
 
 
 
-$primary-color:rgb(255, 168, 206);
 
-$secondary-color:rgb(237, 167, 255);
-$teriary-color:rgb(0, 93, 20);
-$quartenernary-color:rgb(255, 237, 237);
-$quinary-color:rgb(249, 201, 222);
 
 .checklist {
     background-color: $quartenernary-color;

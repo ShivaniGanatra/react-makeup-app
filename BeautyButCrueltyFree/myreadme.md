@@ -5,7 +5,12 @@ Containers {
 
     Aside {
         (2 components both the same)
-        Cruelty free component
+        Cruelty free component {
+            these we have 3 sections (face eyes lips) with drop downs maybe
+
+            by clicking on each you will get filtered components of makeup cards
+
+        }
 
         Vegan Component
     }
