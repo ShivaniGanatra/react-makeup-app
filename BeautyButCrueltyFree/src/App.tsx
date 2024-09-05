@@ -1,14 +1,17 @@
+import "./App.css";
 
-import './App.css'
+import Nav from "./containers/Nav/Nav";
+import Dashboard from "./containers/Dashboard/Dashboard";
+import Aside from "./containers/Aside/Aside";
 
-function App() {
+const App = () => {
+    return (
+        <div>
+            <Nav />
+            <Aside />
+            <Dashboard />
+        </div>
+    );
+};
 
-
-  return (
-    <>
-    test
-    </>
-  )
-}
-
-export default App
+export default App;
