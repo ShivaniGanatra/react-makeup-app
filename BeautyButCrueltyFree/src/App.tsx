@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 
 import Nav from "./containers/Nav/Nav";
 import Dashboard from "./containers/Dashboard/Dashboard";
