@@ -1,12 +1,17 @@
 import "./Dashboard.scss"
 
-import MakeupProduct from "../../components/MakeupProduct/MakeupProduct"
+import MakeupProduct from "../../components/MakeupProduct/MakeupProduct";
 
-const Dashboard = () => {
+type DashboardProps = {
+  veganMakeupData: object[],
+  crueltyFreeMakeupData:object[]
+}
+
+const Dashboard = ({veganMakeupData,crueltyFreeMakeupData}:DashboardProps) => {
   return (
     <div className="dashboard">
       Dashboard
-        <MakeupProduct/>
+        <MakeupProduct veganMakeupData={veganMakeupData} crueltyFreeMakeupData={crueltyFreeMakeupData} />
       </div>
   )
 }

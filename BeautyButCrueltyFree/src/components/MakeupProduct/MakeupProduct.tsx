@@ -1,7 +1,12 @@
 import MakeupFront from "../MakeupFront/MakeupFront";
 import MakeupBack from "../MakeupBack/MakeupBack";
 
-const MakeupProduct = () => {
+type MakeupProductProps = {
+  veganMakeupData: object[],
+  crueltyFreeMakeupData:object[]
+}
+
+const MakeupProduct = ({veganMakeupData,crueltyFreeMakeupData}:MakeupProductProps) => {
   return (
     <article>
        <MakeupFront/>
