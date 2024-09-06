@@ -21,3 +21,6 @@ Containers {
         vegan is green
     }
 }
+https://nabendu82.medium.com/learning-react-with-typescript-by-building-an-api-app-9e8fb61422dc
+find way to have card front and card back
+
