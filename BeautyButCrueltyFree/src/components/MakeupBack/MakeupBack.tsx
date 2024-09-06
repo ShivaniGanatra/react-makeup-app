@@ -1,13 +1,17 @@
-import "./MakeupBack.scss"
+import './MakeupBack.scss'
 
-const MakeupBack = () => {
-  return (
-    <div className="makeupBack">
-        <p className="makeupBack__description">
-        Our Multi Purpose Pressed Powders may be used as eye shadow, brow powder, eye liner, or for highlighting. Blended with antioxidants from Certified Organic Fruits, Berries &amp; Botanicals*. No gluten derived ingredients. 
-        </p>
-    </div>
-  )
+import React from "react";
+
+interface MakeupCardBackProps {
+  id: number;
 }
 
-export default MakeupBack
+const MakeupCardBack: React.FC<MakeupCardBackProps> = ({ id }) => {
+  return (
+    <div className="makeupBack">
+      <p>ID: {id}</p>
+    </div>
+  );
+};
+
+export default MakeupCardBack;

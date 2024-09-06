@@ -1,12 +1,19 @@
-import "./MakeupFront.scss"
+import './MakeupFront.scss'
 
-const MakeupFront = () => {
-  return (
-    <div className="makeupFront">
-        <img className="makeupFront__image" src="https://cdn.shopify.com/s/files/1/1338/0845/products/brain-freeze_a_800x1200.jpg?v=1502255076" alt="" />
-        <p>Colourpop</p>
-    </div>
-  )
+import React from "react";
+
+interface MakeupCardFrontProps {
+  name: string;
+  image_link: string;
 }
 
-export default MakeupFront
+const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link }) => {
+  return (
+    <div className="makeupFront">
+      <img className="makeupFront__image" src={image_link} alt={name} />
+      <h2>{name}</h2>
+    </div>
+  );
+};
+
+export default MakeupCardFront;

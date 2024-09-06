@@ -1,18 +1,26 @@
-import MakeupFront from "../MakeupFront/MakeupFront";
-import MakeupBack from "../MakeupBack/MakeupBack";
 
-type MakeupProductProps = {
-  veganMakeupData: object[],
-  crueltyFreeMakeupData:object[]
+
+import React from "react";
+import MakeupCardFront from "./../MakeupFront/MakeupFront";
+import MakeupCardBack from "./../MakeupBack/MakeupBack";
+
+
+interface MakeupCardProps {
+  id: number;
+  name: string;
+  image_link: string;
 }
 
-const MakeupProduct = ({veganMakeupData,crueltyFreeMakeupData}:MakeupProductProps) => {
+const MakeupCard: React.FC<MakeupCardProps> = ({ id, name, image_link }) => {
   return (
-    <article>
-       <MakeupFront/>
-       <MakeupBack/> 
-    </article>
-  )
-}
+    <div className="makeup-card">
 
-export default MakeupProduct
+      <MakeupCardFront name={name} image_link={image_link} />
+      
+
+      <MakeupCardBack id={id} />
+    </div>
+  );
+};
+
+export default MakeupCard;
