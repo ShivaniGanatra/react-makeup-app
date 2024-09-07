@@ -45,7 +45,8 @@ const App = () => {
         return anyData.map((item) => ({
             id: item.id,
             image_link:item.image_link,
-            name:item.name
+            name:item.name,
+            description:item.description
         }))
     }
 
