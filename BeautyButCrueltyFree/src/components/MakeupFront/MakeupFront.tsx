@@ -7,6 +7,7 @@ interface MakeupCardFrontProps {
   image_link: string;
   useFallback?:boolean
   brand:string
+  variant:string
 }
 
 enum ImageLoadingState {
@@ -16,7 +17,7 @@ enum ImageLoadingState {
   Error
 }
 
-const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, useFallback, brand }) => {
+const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, useFallback, brand,variant }) => {
   const [imageLoadingState, setImageLoadingState] = useState<ImageLoadingState>(ImageLoadingState.Init)
   useEffect (() => {
   setImageLoadingState(image_link?ImageLoadingState.Loading:ImageLoadingState.Error)
@@ -52,7 +53,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
 
   if(imageLoadingState === ImageLoadingState.Error && useFallback){
     return (
-      <div className='makeupFront'>
+      <div className={`makeupFront makeupFront__${variant}`}>
         <img className="makeupFront__image" src={getRandomImageFromArray(randomMakeupImagesInCaseOfError)} alt="" />
         <h2>error {name}</h2>
         <p>{brand}</p>
@@ -61,7 +62,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
   }
   
   return (
-    <div className="makeupFront">
+    <div className={`makeupFront makeupFront__${variant}`}>
       <img className="makeupFront__image" src={image_link} alt={name} 
       onLoad={() => setImageLoadingState(ImageLoadingState.Complete)}
       onError={() => setImageLoadingState(ImageLoadingState.Error)}
