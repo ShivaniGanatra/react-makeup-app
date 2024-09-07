@@ -4,8 +4,10 @@
     background-color: $secondary-color;
     width: 275px;
     height: 400px;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 10px 10PX 0PX 0PX;
+    
+    //padding: 10px;
+    font-family: Poppins;
 
     &__green {
         background-color: lighten($senary-color, 4%);

@@ -1,5 +1,4 @@
 import "./App.scss";
-
 import Nav from "./containers/Nav/Nav";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import Aside from "./containers/Aside/Aside";
@@ -66,12 +65,9 @@ const App = () => {
 
     return (
         <div>
-        <p></p>
-            <button></button>
-            <p></p>
             <Nav />
             <main className="main">
-                <Aside />
+                <Aside/>
                 {cleanedCrueltyFreeData && cleanedVeganData ?<Dashboard veganMakeupData={cleanedVeganData} crueltyFreeMakeupData={cleanedCrueltyFreeData}/> :<p>loading...</p>}
             </main>
         </div>

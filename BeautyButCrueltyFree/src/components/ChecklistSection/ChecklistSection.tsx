@@ -1,8 +1,13 @@
 import "./ChecklistSection.scss"
-const ChecklistSection = () => {
+
+interface ChecklistSectionProps {
+  variant:string
+}
+
+const ChecklistSection: React.FC<ChecklistSectionProps>  = ({variant}) => {
   return (
-    <section className="checklist">ChecklistSection
-        <h1 className="checklist__title">Cruelty Free</h1>
+    <section className="checklist">
+        <h1 className="checklist__title">{variant}</h1>
             <section className="checklist__section">
                 <h2 className="checklist__section-title">face</h2>
                 <p className="checklist__product-type">Foundation</p>

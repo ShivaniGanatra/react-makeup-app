@@ -1,0 +1,16 @@
+
+@import "./../../assets/styles/variables";
+
+.search{
+
+    &__input {
+        width: 300px;
+        height: 30px;
+        margin: 30px;
+        border-radius: 30px;
+        padding: 10px;
+        font-size: 15px;
+        border: 3px darken($primary-color, 10%) solid;
+    }
+
+}

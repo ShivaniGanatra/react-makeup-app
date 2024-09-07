@@ -55,8 +55,8 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
     return (
       <div className={`makeupFront makeupFront__${variant}`}>
         <img className="makeupFront__image" src={getRandomImageFromArray(randomMakeupImagesInCaseOfError)} alt="" />
-        <h2>error {name}</h2>
-        <p>{brand}</p>
+        <h2 className='makeupFront__name'>error {name}</h2>
+        <p className='makeupFront__brand'>{brand}</p>
       </div>
     )
   }
@@ -68,8 +68,8 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
       onError={() => setImageLoadingState(ImageLoadingState.Error)}
       
       />
-      <h2>{name}</h2>
-      <p>{brand}</p>
+      <h2 className='makeupFront__name'>{name}</h2>
+      <p className='makeupFront__brand'>{brand}</p>
     </div>
   );
 };

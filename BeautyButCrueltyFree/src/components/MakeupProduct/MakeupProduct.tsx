@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MakeupCardFront from "./../MakeupFront/MakeupFront";
 import MakeupCardBack from "./../MakeupBack/MakeupBack";
 import ReactCardFlip from "react-card-flip";
-
+import "./MakeupProduct.scss";
 
 interface MakeupCardProps {
   id: number;
@@ -34,14 +34,14 @@ const MakeupCard: React.FC<MakeupCardProps> = ({ id, name, image_link,descriptio
     
     >
       
-      <div  className="front"  >
+      <div className="front"  >
       <MakeupCardFront name={name} image_link={image_link} brand={brand} useFallback ={true} variant={variant}/>
-      <button onClick={handleClick} >button</button>
+      <button className="front__button" onClick={handleClick} >Contents</button>
       </div>
 
       <div  className="back">
       <MakeupCardBack id={id} description={description} variant={variant} />
-      <button onClick={handleClick}>button</button>
+      <button className="back__button" onClick={handleClick}>Image</button>
       </div>
 
     </ReactCardFlip>

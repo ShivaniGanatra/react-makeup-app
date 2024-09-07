@@ -1,4 +1,6 @@
-@import "./../../assets/styles/variables";
+
+@import "./../../assets/styles/variables" ;
+
 
 
 
@@ -7,11 +9,13 @@
 
     width: 275px;
     height: 400px;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 10px 10PX 0PX 0PX;
+    //padding: 10px;
+    overflow: hidden;
 
     &__image {
         max-width: 200px;
+        
 
     }
 
@@ -21,6 +25,20 @@
 
     &__purple {
         background-color: lighten($septenary-color, 5%);
+    }
+
+    &__name {
+        font-family: Parisienne;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__brand {
+        font-family: Poppins;
+        display: flex;
+        justify-content: center;
+
     }
 
 }

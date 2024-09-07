@@ -1,9 +1,12 @@
 import "./Aside.scss"
 import ChecklistSection from "./../../components/ChecklistSection/ChecklistSection"
-const Aside = () => {
+
+
+const Aside = ({}) => {
     
-    return <aside className="aside">Aside
-        <ChecklistSection/>
+    return <aside className="aside">
+        <ChecklistSection variant= "Vegan"/>
+        <ChecklistSection variant= "Cruelty Free"/>
 
     </aside>;
 };
