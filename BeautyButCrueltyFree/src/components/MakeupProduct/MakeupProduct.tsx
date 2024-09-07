@@ -15,7 +15,9 @@ const MakeupCard: React.FC<MakeupCardProps> = ({ id, name, image_link }) => {
   return (
     <div className="makeup-card">
 
-      <MakeupCardFront name={name} image_link={image_link} />
+      <MakeupCardFront name={name} image_link={image_link} 
+      useFallback ={true}
+      />
       
 
       <MakeupCardBack id={id} />
