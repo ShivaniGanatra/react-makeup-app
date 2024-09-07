@@ -5,6 +5,8 @@ interface MakeupProps {
   id: number;
   image_link: string;
   name: string;
+  description:string;
+  brand:string
 }
 
 type DashboardProps = {
@@ -21,6 +23,9 @@ const Dashboard = ({ veganMakeupData, crueltyFreeMakeupData }: DashboardProps) =
           id={veganMakeup.id}
           name={veganMakeup.name}
           image_link={veganMakeup.image_link}
+          description = {veganMakeup.description}
+          brand = {veganMakeup.brand}
+
         />
       ))}
     </div>

@@ -38,7 +38,9 @@ const App = () => {
     interface Product {
         id:number;
         image_link:string;
-        name:string
+        name:string;
+        description:string;
+        brand:string
     }
 
     const cleanedProductsData = (anyData:any[]):Product[] => {
@@ -46,7 +48,8 @@ const App = () => {
             id: item.id,
             image_link:item.image_link,
             name:item.name,
-            description:item.description
+            description:item.description,
+            brand:item.brand
         }))
     }
 
