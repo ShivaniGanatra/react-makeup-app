@@ -49,6 +49,8 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
     return image as string;
   }
 
+  
+
 
 
   if(imageLoadingState === ImageLoadingState.Error && useFallback){

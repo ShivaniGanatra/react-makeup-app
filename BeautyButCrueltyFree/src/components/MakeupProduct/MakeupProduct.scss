@@ -1,6 +1,8 @@
 @import "./../../assets/styles/variables";
 
-
+.front,.back{
+    margin: 10px;
+}
 .front__button, .back__button {
     background-color: $quinary-color;
     width: 275px;

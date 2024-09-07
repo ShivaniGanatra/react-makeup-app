@@ -1,10 +1,8 @@
 @use "./../../assets/styles/variables" as *;
 
 
-
-
-
 .checklist {
+    border: 0px;
     background-color: $quartenernary-color;
     padding: 0px 0px 20px 0px;
 
@@ -18,21 +16,29 @@
         margin: 0px;
         font-size: 40px;
         font-family: Parisienne;
+        border: 0px;
+        width:275px;
+
     }
     &__section-title {
         background-color: $quinary-color;
-        padding: 0px 10px;
+        padding: 0px 0px;
         margin: 0px;
         font-family: "Parisienne";
         font-size: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: 0px;
+        width:275px;
     }
 
     &__product-type{
-        padding: 0px 10px;
+        padding: 0px 0px;
         font-family: "Poppins";
+        border: 0px;
+        width:275px;
+        background-color: $quartenernary-color;
     }
 }
 
