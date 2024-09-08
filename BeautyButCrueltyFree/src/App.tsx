@@ -90,23 +90,30 @@ const smallObjectsArrayExample : exampleObject[] = [
 
 
 
-const filteredProduct = (productData:exampleObject[],productType:string) => {
-    //there is more than one type of lipstick such as crayon but its in the category of lipstick
-    //therefore i will try filter gloss and then lip
+const filteredProductByType = (productData:Product[],productType:string) => {
 
-    //dont want to change original array so im copying it
-    // const copiedData:exampleObject[] = [...productData]
 
-    const result = productData
-    .map(person => ({ name: person.name }))
-    .filter(person => person.name.includes(productType));
+    //https://www.geeksforgeeks.org/how-to-filter-object-array-based-on-attributes/ used this resource
 
-return result 
+    const filteredProductByTypeData = productData.map(item => ({ 
+        id: item.id,
+        image_link: item.image_link,
+        name: item.name,
+        description: item.description,
+        brand: item.brand,
+        product_type:item.product_type 
+        })).filter(item => item.product_type.includes(productType));
+
+    return filteredProductByTypeData 
 }
-    console.log(smallObjectsArrayExample)
-    console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
-    console.log(filteredProduct(smallObjectsArrayExample,"lip"))
-    console.log(filteredProduct(smallObjectsArrayExample,"nail varnish"))
+
+console.log(filteredProductByType(cleanedCrueltyFreeData,productType))
+
+
+    // console.log(smallObjectsArrayExample)
+    // console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
+    // console.log(filteredProduct(smallObjectsArrayExample,"lip"))
+    // console.log(filteredProduct(smallObjectsArrayExample,"nail varnish"))
 
 
 
@@ -120,8 +127,8 @@ return result
                 <Aside getTypeOfProduct={getTypeOfProduct}/>
                 {cleanedCrueltyFreeData && cleanedVeganData ? (
                     <Dashboard
-                        veganMakeupData={cleanedVeganData}
-                        crueltyFreeMakeupData={cleanedCrueltyFreeData}
+                        veganMakeupData={filteredProductByType(cleanedVeganData,productType)}
+                        crueltyFreeMakeupData={filteredProductByType(cleanedCrueltyFreeData,productType)}
                     />
                 ) : (
                     <p>loading...</p>
