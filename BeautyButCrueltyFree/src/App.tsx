@@ -77,16 +77,7 @@ const App: React.FC = () => {
         setProductType(product);
     };
 
-    interface exampleObject {
-        name: string;
-    }
 
-    const smallObjectsArrayExample: exampleObject[] = [
-        { name: "lip gloss" },
-        { name: "lip crayon" },
-        { name: "lipstick" },
-        { name: "nail varnish" },
-    ];
 
     if (productType.includes(",")) {
         const products = productType.split(",");
@@ -158,7 +149,7 @@ const App: React.FC = () => {
     return (
         <div>
             <div>{`Im the grandparent app but product is ${productType}`}</div>
-            <Nav />
+            <Nav getTypeOfProduct={getTypeOfProduct}/>
             <main className="main">
                 <Aside getTypeOfProduct={getTypeOfProduct} />
                 {cleanedCrueltyFreeData && cleanedVeganData ? (
@@ -181,6 +172,18 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+interface exampleObject {
+    name: string;
+}
+
+const smallObjectsArrayExample: exampleObject[] = [
+    { name: "lip gloss" },
+    { name: "lip crayon" },
+    { name: "lipstick" },
+    { name: "nail varnish" },
+];
 
 // console.log(smallObjectsArrayExample)
 // console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
