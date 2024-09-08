@@ -8,6 +8,7 @@ interface MakeupCardFrontProps {
   useFallback?:boolean
   brand:string
   variant:string
+  product_type:string
 }
 
 enum ImageLoadingState {
@@ -17,13 +18,13 @@ enum ImageLoadingState {
   Error
 }
 
-const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, useFallback, brand,variant }) => {
+const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, useFallback, brand,variant, product_type }) => {
   const [imageLoadingState, setImageLoadingState] = useState<ImageLoadingState>(ImageLoadingState.Init)
   useEffect (() => {
   setImageLoadingState(image_link?ImageLoadingState.Loading:ImageLoadingState.Error)
   }, [image_link])
 
-  console.log(imageLoadingState)
+  //console.log(imageLoadingState)
   if(!image_link){
     return null
   }
@@ -45,7 +46,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
       Math.random() * images.length
     );
     const image: string = images[randomNumberBetween0andLastIndex];
-    console.log(image + " index is " + randomNumberBetween0andLastIndex);
+    //console.log(image + " index is " + randomNumberBetween0andLastIndex);
     return image as string;
   }
 
@@ -59,6 +60,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
         <img className="makeupFront__image" src={getRandomImageFromArray(randomMakeupImagesInCaseOfError)} alt="" />
         <h2 className='makeupFront__name'>error {name}</h2>
         <p className='makeupFront__brand'>{brand}</p>
+        <div>{product_type}</div>
       </div>
     )
   }
@@ -72,6 +74,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
       />
       <h2 className='makeupFront__name'>{name}</h2>
       <p className='makeupFront__brand'>{brand}</p>
+      <div>{product_type}</div>
     </div>
   );
 };

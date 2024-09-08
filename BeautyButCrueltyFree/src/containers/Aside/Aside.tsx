@@ -1,13 +1,16 @@
 import "./Aside.scss"
 import ChecklistSection from "./../../components/ChecklistSection/ChecklistSection"
 
+interface AsideProps {
+    getTypeOfProduct(product:string) :void   
+}
 
-
-const Aside = ({}) => {
+const Aside:React.FC<AsideProps> = ({getTypeOfProduct}) => {
     
     return <aside className="aside">
-        <ChecklistSection variant= "Vegan"/>
-        <ChecklistSection variant= "Cruelty Free"/>
+        <div></div>
+        <ChecklistSection getTypeOfProduct={getTypeOfProduct} variant= "Vegan"/>
+        <ChecklistSection getTypeOfProduct={getTypeOfProduct} variant= "Cruelty Free"/>
 
     </aside>;
 };

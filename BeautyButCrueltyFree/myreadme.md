@@ -1,0 +1,1 @@
+in card back have scroll menu for descriptions that are too long

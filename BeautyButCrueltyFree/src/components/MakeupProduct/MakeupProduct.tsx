@@ -11,9 +11,10 @@ interface MakeupCardProps {
   description:string;
   brand:string
   variant:string
+  product_type:string
 }
 
-const MakeupCard: React.FC<MakeupCardProps> = ({ id, name, image_link,description,brand,variant }) => {
+const MakeupCard: React.FC<MakeupCardProps> = ({ id, name, image_link,description,brand,variant, product_type }) => {
 
   //make card flip 
   //resource = "https://www.geeksforgeeks.org/design-a-flip-card-effect-using-reactjs/"
@@ -35,7 +36,7 @@ const MakeupCard: React.FC<MakeupCardProps> = ({ id, name, image_link,descriptio
     >
       
       <div className="front"  >
-      <MakeupCardFront name={name} image_link={image_link} brand={brand} useFallback ={true} variant={variant}/>
+      <MakeupCardFront name={name} image_link={image_link} brand={brand} useFallback ={true} variant={variant} product_type={product_type}/>
       <button className="front__button" onClick={handleClick} >Contents</button>
       </div>
 

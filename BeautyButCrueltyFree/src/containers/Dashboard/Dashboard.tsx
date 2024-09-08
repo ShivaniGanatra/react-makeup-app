@@ -7,6 +7,7 @@ interface MakeupProps {
     name: string;
     description: string;
     brand: string;
+    product_type:string
 }
 
 type DashboardProps = {
@@ -29,6 +30,7 @@ const Dashboard = ({
                     description={veganMakeup.description}
                     brand={veganMakeup.brand}
                     variant="green"
+                    product_type={veganMakeup.product_type}
                 />
             ))}
 
@@ -41,6 +43,7 @@ const Dashboard = ({
                     description={crueltyFreeMakeup.description}
                     brand={crueltyFreeMakeup.brand}
                     variant="purple"
+                    product_type={crueltyFreeMakeup.product_type}
                 />
             ))}
         </div>
