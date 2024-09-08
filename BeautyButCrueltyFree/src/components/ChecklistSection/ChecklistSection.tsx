@@ -10,31 +10,33 @@ interface ChecklistSectionProps {
 
 const ChecklistSection: React.FC<ChecklistSectionProps>  = ({variant, getTypeOfProduct}) => {
 
+  //https://stackoverflow.com/questions/26069238/call-multiple-functions-onclick-reactjs
+  //i want to get multiple type of products so i will make a function that houses several functions
 
 
   return (
     <section className="checklist">
         <h1 className="checklist__title">{variant}</h1>
             <section className="checklist__section">
-                <button className="checklist__section-title">face</button>
+                <button onClick={() => getTypeOfProduct("face")} className="checklist__section-title">face</button>
                 <button onClick={() => getTypeOfProduct("foundation")} className="checklist__product-type">Foundation</button>
                 <button onClick={() => getTypeOfProduct("blush")} className="checklist__product-type">Blush</button>
                 <button onClick={() => getTypeOfProduct("bronzer")} className="checklist__product-type">Bronzer</button>
             </section> 
             <section className="checklist__section">
-                <h2 className="checklist__section-title">eyes</h2>
+                <button onClick={() => getTypeOfProduct("eyes")} className="checklist__section-title">eyes</button>
                 <button onClick={() => getTypeOfProduct("eyeliner")} className="checklist__product-type">Eyeliner</button>
                 <button onClick={() => getTypeOfProduct("eyeshadow")} className="checklist__product-type">Eyeshadow</button>
                 <button onClick={() => getTypeOfProduct("mascara")} className="checklist__product-type">Mascara</button>
                 
             </section>
             <section className="checklist__section">
-                <h2 className="checklist__section-title">lips</h2>
+                <button onClick={() => getTypeOfProduct("lips")} className="checklist__section-title">lips</button>
                 <button onClick={() => getTypeOfProduct("lip_liner")} className="checklist__product-type">Lip-liner</button>
                 <button onClick={() => getTypeOfProduct("lipstick")} className="checklist__product-type">Lipstick need to specify category too</button>
             </section>
             <section className="checklist__section">
-            <h2 className="checklist__section-title">nails</h2>
+            <button onClick={() => getTypeOfProduct("nail_polish")} className="checklist__section-title">nails</button>
             <button onClick={() => getTypeOfProduct("nail_polish")} className="checklist__product-type">Nail Varnish</button>
             </section>
     </section>

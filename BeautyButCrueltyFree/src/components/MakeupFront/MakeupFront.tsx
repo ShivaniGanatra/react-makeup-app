@@ -57,7 +57,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
   if(imageLoadingState === ImageLoadingState.Error && useFallback){
     return (
       <div className={`makeupFront makeupFront__${variant}`}>
-        <img className="makeupFront__image" src={getRandomImageFromArray(randomMakeupImagesInCaseOfError)} alt="" />
+        <img className="makeupFront__image" src={getRandomImageFromArray(randomMakeupImagesInCaseOfError)} alt={product_type} />
         <h2 className='makeupFront__name'>error {name}</h2>
         <p className='makeupFront__brand'>{brand}</p>
         <div>{product_type}</div>
@@ -67,7 +67,7 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({ name, image_link, use
   
   return (
     <div className={`makeupFront makeupFront__${variant}`}>
-      <img className="makeupFront__image" src={image_link} alt={name} 
+      <img className="makeupFront__image" src={image_link} alt={product_type} 
       onLoad={() => setImageLoadingState(ImageLoadingState.Complete)}
       onError={() => setImageLoadingState(ImageLoadingState.Error)}
       

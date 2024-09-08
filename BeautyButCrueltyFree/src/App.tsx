@@ -5,10 +5,12 @@ import Aside from "./containers/Aside/Aside";
 // import { useEffect, useState} from "react";
 import { useEffect, useState } from "react";
 
-const App:React.FC = () => {
+const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
 
-    const [crueltyFreeMakeupData, setcrueltyFreeMakeupData] = useState<object[]>([]);
+    const [crueltyFreeMakeupData, setcrueltyFreeMakeupData] = useState<
+        object[]
+    >([]);
 
     const getVeganMakeupData = () => {
         fetch(
@@ -41,7 +43,7 @@ const App:React.FC = () => {
         name: string;
         description: string;
         brand: string;
-        product_type:string
+        product_type: string;
     }
 
     const cleanedProductsData = (anyData: any[]): Product[] => {
@@ -51,7 +53,7 @@ const App:React.FC = () => {
             name: item.name,
             description: item.description,
             brand: item.brand,
-            product_type:item.product_type
+            product_type: item.product_type,
         }));
     };
 
@@ -61,8 +63,6 @@ const App:React.FC = () => {
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
     //console.log(cleanedCrueltyFreeData);
 
-
-
     //filter data here use this video how to pass info from child to parent component
     //https://www.youtube.com/watch?v=vOMdzCw2bMA
 
@@ -71,64 +71,106 @@ const App:React.FC = () => {
 
     //https://www.google.com/search?q=how+to+pass+down+a+function+as+a+prop+react+ts&sca_esv=074f8b059443cf28&sca_upv=1&rlz=1C5MACD_enGB1034GB1034&ei=EqncZu3KIoDzi-gPxZikqQc&ved=0ahUKEwjtm96WyLGIAxWA-QIHHUUMKXUQ4dUDCA8&uact=5&oq=how+to+pass+down+a+function+as+a+prop+react+ts&gs_lp=Egxnd3Mtd2l6LXNlcnAiLmhvdyB0byBwYXNzIGRvd24gYSBmdW5jdGlvbiBhcyBhIHByb3AgcmVhY3QgdHMyCBAhGKABGMMEMggQIRigARjDBEj9KlC7GVi4J3ADeAGQAQCYAbwCoAHCDKoBBzIuNC4yLjG4AQPIAQD4AQGYAgmgAuMHwgIKEAAYsAMY1gQYR8ICChAhGKABGMMEGAqYAwCIBgGQBgiSBwU0LjQuMaAH9y8&sclient=gws-wiz-serp#fpstate=ive&vld=cid:d93df898,vid:yM64D3nZmfQ,st:303
 
-const [productType,setProductType] = useState("")
+    const [productType, setProductType] = useState("");
 
-const getTypeOfProduct = (product:string):void => {
-  setProductType(product) 
-}
+    const getTypeOfProduct = (product: string): void => {
+        setProductType(product);
+    };
 
-interface exampleObject {
-    name:string
-}
+    interface exampleObject {
+        name: string;
+    }
 
-const smallObjectsArrayExample : exampleObject[] = [
-    {name:"lip gloss"},
-    {name:"lip crayon"},
-    {name:"lipstick"},
-    {name:"nail varnish"},
-]
+    const smallObjectsArrayExample: exampleObject[] = [
+        { name: "lip gloss" },
+        { name: "lip crayon" },
+        { name: "lipstick" },
+        { name: "nail varnish" },
+    ];
+
+    if (productType.includes(",")) {
+        const products = productType.split(",");
+        console.log(products);
+    }
+
+    const filteredProductByType = (
+        productData: Product[],
+        productType: string
+    ) => {
+
+        if(productType === "lips"){
+            const filteredProductByTypeData = productData
+            .map((item) => ({
+                id: item.id,
+                image_link: item.image_link,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                product_type: item.product_type,
+            }))
+            .filter((item) => item.product_type.includes("lip_liner") || item.product_type.includes("lipstick"));
+            return filteredProductByTypeData; 
+        }
+
+        if(productType === "eyes"){
+            const filteredProductByTypeData = productData
+            .map((item) => ({
+                id: item.id,
+                image_link: item.image_link,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                product_type: item.product_type,
+            }))
+            .filter((item) => item.product_type.includes("eyeliner") || item.product_type.includes("eyeshadow") || item.product_type.includes("mascara"));
+            return filteredProductByTypeData; 
+        }
+
+        if(productType === "face"){
+            const filteredProductByTypeData = productData
+            .map((item) => ({
+                id: item.id,
+                image_link: item.image_link,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                product_type: item.product_type,
+            }))
+            .filter((item) => item.product_type.includes("foundation") || item.product_type.includes("blush") || item.product_type.includes("bronzer"));
+            return filteredProductByTypeData; 
+        }
 
 
+        const filteredProductByTypeData = productData
+            .map((item) => ({
+                id: item.id,
+                image_link: item.image_link,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                product_type: item.product_type,
+            }))
+            .filter((item) => item.product_type.includes(productType));
 
-const filteredProductByType = (productData:Product[],productType:string) => {
-
-
-    //https://www.geeksforgeeks.org/how-to-filter-object-array-based-on-attributes/ used this resource
-
-    const filteredProductByTypeData = productData.map(item => ({ 
-        id: item.id,
-        image_link: item.image_link,
-        name: item.name,
-        description: item.description,
-        brand: item.brand,
-        product_type:item.product_type 
-        })).filter(item => item.product_type.includes(productType));
-
-    return filteredProductByTypeData 
-}
-
-console.log(filteredProductByType(cleanedCrueltyFreeData,productType))
-
-
-    // console.log(smallObjectsArrayExample)
-    // console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
-    // console.log(filteredProduct(smallObjectsArrayExample,"lip"))
-    // console.log(filteredProduct(smallObjectsArrayExample,"nail varnish"))
-
-
-
-
+        return filteredProductByTypeData;
+    };
 
     return (
         <div>
             <div>{`Im the grandparent app but product is ${productType}`}</div>
             <Nav />
             <main className="main">
-                <Aside getTypeOfProduct={getTypeOfProduct}/>
+                <Aside getTypeOfProduct={getTypeOfProduct} />
                 {cleanedCrueltyFreeData && cleanedVeganData ? (
                     <Dashboard
-                        veganMakeupData={filteredProductByType(cleanedVeganData,productType)}
-                        crueltyFreeMakeupData={filteredProductByType(cleanedCrueltyFreeData,productType)}
+                        veganMakeupData={filteredProductByType(
+                            cleanedVeganData,
+                            productType
+                        )}
+                        crueltyFreeMakeupData={filteredProductByType(
+                            cleanedCrueltyFreeData,
+                            productType
+                        )}
                     />
                 ) : (
                     <p>loading...</p>
@@ -139,3 +181,8 @@ console.log(filteredProductByType(cleanedCrueltyFreeData,productType))
 };
 
 export default App;
+
+// console.log(smallObjectsArrayExample)
+// console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
+// console.log(filteredProduct(smallObjectsArrayExample,"lip"))
+// console.log(filteredProduct(smallObjectsArrayExample,"nail varnish"))
