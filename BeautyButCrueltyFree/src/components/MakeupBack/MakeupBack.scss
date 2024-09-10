@@ -5,6 +5,9 @@
     width: 275px;
     height: 400px;
     border-radius: 10px 10PX 0PX 0PX;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     //padding: 10px;
     font-family: Poppins;
@@ -15,5 +18,12 @@
 
     &__purple {
         background-color: lighten($septenary-color, 10%);
+    }
+
+    &__description{
+        width: 250px;
+        height: 350px; /* set a fixed height for the div */
+        overflow-y: scroll; /* enable vertical scrollbar */
+
     }
 }

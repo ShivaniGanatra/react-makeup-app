@@ -11,8 +11,8 @@ interface MakeupCardBackProps {
 const MakeupCardBack: React.FC<MakeupCardBackProps> = ({ id, description, variant }) => {
   return (
     <div className={`makeupBack makeupBack__${variant}`}>
-      <p>ID: {id}</p>
-      <p>{description}</p>
+
+      <p className='makeupBack__description'>{description}</p>
     </div>
   );
 };

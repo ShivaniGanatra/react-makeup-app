@@ -77,8 +77,6 @@ const App: React.FC = () => {
         setProductType(product);
     };
 
-
-
     if (productType.includes(",")) {
         const products = productType.split(",");
         console.log(products);
@@ -173,17 +171,16 @@ const App: React.FC = () => {
 
 export default App;
 
+// interface exampleObject {
+//     name: string;
+// }
 
-interface exampleObject {
-    name: string;
-}
-
-const smallObjectsArrayExample: exampleObject[] = [
-    { name: "lip gloss" },
-    { name: "lip crayon" },
-    { name: "lipstick" },
-    { name: "nail varnish" },
-];
+// const smallObjectsArrayExample: exampleObject[] = [
+//     { name: "lip gloss" },
+//     { name: "lip crayon" },
+//     { name: "lipstick" },
+//     { name: "nail varnish" },
+// ];
 
 // console.log(smallObjectsArrayExample)
 // console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
