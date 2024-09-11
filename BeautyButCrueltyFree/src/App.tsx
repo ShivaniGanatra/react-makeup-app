@@ -86,10 +86,16 @@ const App: React.FC = () => {
 
     //https://www.google.com/search?q=how+to+pass+down+a+function+as+a+prop+react+ts&sca_esv=074f8b059443cf28&sca_upv=1&rlz=1C5MACD_enGB1034GB1034&ei=EqncZu3KIoDzi-gPxZikqQc&ved=0ahUKEwjtm96WyLGIAxWA-QIHHUUMKXUQ4dUDCA8&uact=5&oq=how+to+pass+down+a+function+as+a+prop+react+ts&gs_lp=Egxnd3Mtd2l6LXNlcnAiLmhvdyB0byBwYXNzIGRvd24gYSBmdW5jdGlvbiBhcyBhIHByb3AgcmVhY3QgdHMyCBAhGKABGMMEMggQIRigARjDBEj9KlC7GVi4J3ADeAGQAQCYAbwCoAHCDKoBBzIuNC4yLjG4AQPIAQD4AQGYAgmgAuMHwgIKEAAYsAMY1gQYR8ICChAhGKABGMMEGAqYAwCIBgGQBgiSBwU0LjQuMaAH9y8&sclient=gws-wiz-serp#fpstate=ive&vld=cid:d93df898,vid:yM64D3nZmfQ,st:303
 
-    const [productType, setProductType] = useState("");
+    const [productType, setProductType] = useState("dont show initially");
 
     const getTypeOfProduct = (product: string): void => {
         setProductType(product);
+    };
+
+    const [searchProductType, setSearchProductType] = useState("dont show initially");
+
+    const getTypeOfProductInSearch = (product: string): void => {
+        setSearchProductType(product);
     };
 
     if (productType.includes(",")) {
@@ -177,7 +183,7 @@ const App: React.FC = () => {
 
     return (
         <div>
-            <Nav getTypeOfProduct={getTypeOfProduct} />
+            <Nav getTypeOfSearchProduct={getTypeOfProductInSearch} />
             <main className="main">
                 <Aside getTypeOfProduct={getTypeOfProduct} />
                 {cleanedCrueltyFreeData && cleanedVeganData ? (
@@ -187,10 +193,24 @@ const App: React.FC = () => {
                                 cleanedVeganData,
                                 productType
                             )}
+
+                            veganSearchMakeupData={filteredProductByType(
+                                cleanedVeganData,
+                                searchProductType
+                            )}
+
                             crueltyFreeMakeupData={filteredProductByType(
                                 cleanedCrueltyFreeData,
                                 productType
                             )}
+
+
+
+                            crueltyFreeSearchMakeupData={filteredProductByType(
+                                cleanedCrueltyFreeData,
+                                searchProductType
+                            )}
+                            
                         />
                     </div>
                 ) : (

@@ -2,10 +2,10 @@ import { FormEvent, useState } from "react";
 import "./Search.scss";
 
 interface SearchProps {
-    getTypeOfProduct(product: string): void;
+  getTypeOfSearchProduct(product: string): void;
 }
 
-const Search: React.FC<SearchProps> = ({getTypeOfProduct}) => {
+const Search: React.FC<SearchProps> = ({getTypeOfSearchProduct}) => {
     const [searchTerm, setSearchTerm] = useState<string>("");
 
     const handleInput = (event: FormEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ const Search: React.FC<SearchProps> = ({getTypeOfProduct}) => {
                 className="search__input"
                 type="text"
             />
-            {getTypeOfProduct(searchTerm) as unknown as string}
+            {getTypeOfSearchProduct(searchTerm) as unknown as string}
         </div>
     );
 };

@@ -4,9 +4,9 @@ import NavButtons from "./../../components/NavButtons/NavButtons";
 import { useState } from "react";
 
 interface NavProps {
-    getTypeOfProduct(product: string): void;
+    getTypeOfSearchProduct(product: string): void;
 }
-const Nav: React.FC<NavProps> = ({ getTypeOfProduct }) => {
+const Nav: React.FC<NavProps> = ({ getTypeOfSearchProduct }) => {
     const [showNav, setShowNav] = useState(false);
     const toggleNav = () => {
         setShowNav(!showNav);
@@ -20,7 +20,7 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProduct }) => {
                 </button>
 
 
-                <Search getTypeOfProduct={getTypeOfProduct} />
+                <Search getTypeOfSearchProduct={getTypeOfSearchProduct} />
             </div>
             <h1 className="nav__heading">Beauty but cruelty free</h1>
             <div className="nav-center">
