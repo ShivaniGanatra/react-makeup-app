@@ -2,7 +2,6 @@ import "./App.scss";
 import Nav from "./containers/Nav/Nav";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import Aside from "./containers/Aside/Aside";
-// import { useEffect, useState} from "react";
 import { useEffect, useState } from "react";
 
 

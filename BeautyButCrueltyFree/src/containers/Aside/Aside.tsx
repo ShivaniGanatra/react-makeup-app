@@ -1,19 +1,32 @@
-import "./Aside.scss"
-import ChecklistSection from "./../../components/ChecklistSection/ChecklistSection"
+import "./Aside.scss";
+import ChecklistSection from "./../../components/ChecklistSection/ChecklistSection";
 
 interface AsideProps {
-    getTypeOfProduct(product:string) :void   
+    getTypeOfProduct(product: string): void;
 }
 
-const Aside:React.FC<AsideProps> = ({getTypeOfProduct}) => {
-    
-    return <aside className="aside">
-        <div className="but">
-        <button onClick={() => getTypeOfProduct("")} className="aside__button">All Products</button></div>
-        <ChecklistSection getTypeOfProduct={getTypeOfProduct} variant= "Vegan"/>
-        <ChecklistSection getTypeOfProduct={getTypeOfProduct} variant= "Cruelty Free"/>
+const Aside: React.FC<AsideProps> = ({ getTypeOfProduct }) => {
+    return (
+        <aside className="aside">
+            <div className="but">
+                
+                <button
+                    onClick={() => getTypeOfProduct("")}
+                    className="aside__button"
+                >
+                    All Products
+                </button>
+                
+            </div>
+            <h1 className="checklist__title">Vegan</h1>
+            <h1 className="checklist__title">Cruelty free</h1>
+            <ChecklistSection
+                getTypeOfProduct={getTypeOfProduct}
+                variant="Vegan"
+            />
 
-    </aside>;
+        </aside>
+    );
 };
 
 export default Aside;

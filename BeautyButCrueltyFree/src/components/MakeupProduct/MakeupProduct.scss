@@ -1,11 +1,33 @@
 @import "./../../assets/styles/variables";
 
-.front,.back{
-    margin: 10px;
-}
-.front__button, .back__button {
+
+.front__button {
+    background-color: $quinary-color;
     background-color: $quinary-color;
     width: 90vw;
+    padding: 10px;
+    border-radius: 0px 0PX 10PX 10PX;
+    border: 0px;
+
+    &--green {
+        background-color: $senary-color;
+    }
+
+    &--purple {
+        background-color: lighten($septenary-color,7%);
+    }    background-color: $quinary-color;
+    width: 90vw;
+    padding: 10px;
+    border-radius: 0px 0PX 10PX 10PX;
+    border: 0px;
+
+    &--green {
+        background-color: $senary-color;
+    }
+
+    &--purple {
+        background-color: lighten($septenary-color,7%);
+    }
     padding: 10px;
     border-radius: 0px 0PX 10PX 10PX;
     border: 0px;
@@ -19,17 +41,33 @@
     }
 }
 
+.back_button {
+    background-color: $quinary-color;
+
+    padding: 10px;
+    border-radius: 0px 0PX 10PX 10PX;
+    border: 0px;
+
+    &--green {
+        background-color: $senary-color;
+    }
+
+    &--purple {
+        background-color: lighten($septenary-color,7%);
+    } 
+}
+
 
 
 @media screen and (min-width:768px){
-    .front,.back{
-        margin: 10px;
-    }
-    .front__button, .back__button {
-        background-color: $quinary-color;
+
+    .back__button {
         width: 275px;
-        padding: 10px;
-        border-radius: 0px 0PX 10PX 10PX;
-        border: 0px;
+
     }
+    .front__button {
+        width: 275px;
+    }
+
+
 }

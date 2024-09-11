@@ -9,7 +9,7 @@ interface ChecklistSectionProps {
 
 
 
-const ChecklistSection: React.FC<ChecklistSectionProps>  = ({variant, getTypeOfProduct}) => {
+const ChecklistSection: React.FC<ChecklistSectionProps>  = ({ getTypeOfProduct}) => {
 
   //https://stackoverflow.com/questions/26069238/call-multiple-functions-onclick-reactjs
   //i want to get multiple type of products so i will make a function that houses several functions
@@ -39,7 +39,7 @@ const ChecklistSection: React.FC<ChecklistSectionProps>  = ({variant, getTypeOfP
 
   return (
     <section className="checklist">
-        <h1 className="checklist__title">{variant}</h1>
+
             <section className="checklist__section">
               <h2 onClick={toggleFaceSettings} className="checklist__section-title" >face ⌄</h2>
               {showFace && (<div>

@@ -5,17 +5,23 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+
 }
 
 @media screen and (min-width:768px){
     .dashboard {
-        height: 100vh;
+    
         width: 100%;
+        height: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        gap: 10px;
-        padding: 10px;
+        flex-direction: row;
+
+
+
     }
+}
+
+@media screen and (min-width:1024px){
+
 }

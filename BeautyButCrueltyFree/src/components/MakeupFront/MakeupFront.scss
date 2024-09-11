@@ -51,4 +51,13 @@
     }
 
 }
+@media screen and (min-width:768px){
+    .makeupFront {
 
+        width: 275px;
+        height: 400px;
+        border-radius: 10px 10PX 0PX 0PX;
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 1fr 1fr 20px 70px;}
+}
