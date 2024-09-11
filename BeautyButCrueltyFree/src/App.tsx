@@ -170,7 +170,7 @@ const App: React.FC = () => {
                 product_type: item.product_type,
                 product_colors: item.product_colors,
             }))
-            .filter((item) => item.product_type.includes(productType));
+            .filter((item) => item.product_type.includes(productType) );
 
         return filteredProductByTypeData;
     };
