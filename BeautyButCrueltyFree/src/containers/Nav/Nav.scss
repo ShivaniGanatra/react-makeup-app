@@ -5,7 +5,7 @@
     color: $teriary-color;
     background-color: $quinary-color;
     width: 100%;
-    height:225px;
+    height:550px;
     //padding: 40px;
     
 
@@ -25,4 +25,16 @@
 
     }
 
+}
+
+.pop-up{
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    padding: 15px;
+    align-items: center;
+    background-color: $primary-color;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
 }

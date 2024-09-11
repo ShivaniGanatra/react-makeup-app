@@ -1,3 +1,4 @@
+import ShadeSection from "../ShadeSection/ShadeSection";
 import "./MakeupFront.scss";
 
 import React, { useEffect, useState } from "react";
@@ -9,6 +10,10 @@ interface MakeupCardFrontProps {
     brand: string;
     variant: string;
     product_type: string;
+    product_colors: {
+        hex_value: string;
+        colour_name: string;
+    }[];
 }
 
 enum ImageLoadingState {
@@ -18,17 +23,24 @@ enum ImageLoadingState {
     Error,
 }
 
+const myComponentStyle = {
+    color: "$color",
+    lineHeight: 10,
+    padding: "1.5em",
+};
+
 const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
     name,
     image_link,
-    useFallback,
     brand,
     variant,
     product_type,
+    product_colors,
 }) => {
     const [imageLoadingState, setImageLoadingState] =
         useState<ImageLoadingState>(ImageLoadingState.Init);
     useEffect(() => {
+        console.log("image:", image_link);
         setImageLoadingState(
             image_link ? ImageLoadingState.Loading : ImageLoadingState.Error
         );
@@ -43,6 +55,8 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
     //this is the resource that showed me what to do if an image isnt working
     // https://www.youtube.com/watch?v=4nYsbm8N4EQ&t=934s
     // if get time use name if name is foundation get random foundtion image lipstick image etc
+
+    // TO DO - refactor utility functions to be insides of their own file and imported where and when needed
 
     const randomMakeupImagesInCaseOfError: string[] = [
         "https://d1f34ajap1v5tm.cloudfront.net/image/Types-of-Makeup-Every-Makeup-Lover-Should-Know.jpg",
@@ -59,8 +73,13 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
         //console.log(image + " index is " + randomNumberBetween0andLastIndex);
         return image as string;
     };
-
-    if (imageLoadingState === ImageLoadingState.Error && useFallback) {
+    console.log(
+        "imageloadingstate:",
+        imageLoadingState,
+        "ImageLoadingState.Error: ",
+        ImageLoadingState.Error
+    );
+    if (imageLoadingState === ImageLoadingState.Error) {
         return (
             <div className={`makeupFront makeupFront__${variant}`}>
                 <img
@@ -72,7 +91,11 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
                 />
                 <h2 className="makeupFront__name">error {name}</h2>
                 <p className="makeupFront__brand">{brand}</p>
-                <div></div>
+                {product_colors.length > 1 ? (
+                    <ShadeSection product_colors={product_colors} />
+                ) : (
+                    ""
+                )}
             </div>
         );
     }
@@ -84,11 +107,17 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
                 src={image_link}
                 alt={product_type}
                 onLoad={() => setImageLoadingState(ImageLoadingState.Complete)}
-                onError={() => setImageLoadingState(ImageLoadingState.Error)}
+                onError={() => {
+                    setImageLoadingState(ImageLoadingState.Error);
+                }}
             />
             <h2 className="makeupFront__name">{name}</h2>
             <p className="makeupFront__brand">{brand}</p>
-            <div></div>
+            {product_colors.length > 1 ? (
+                <ShadeSection product_colors={product_colors} />
+            ) : (
+                ""
+            )}
         </div>
     );
 };

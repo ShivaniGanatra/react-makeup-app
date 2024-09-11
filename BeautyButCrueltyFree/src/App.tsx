@@ -5,6 +5,8 @@ import Aside from "./containers/Aside/Aside";
 // import { useEffect, useState} from "react";
 import { useEffect, useState } from "react";
 
+import Shade from "./components/Shade/Shade";
+
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
 
@@ -30,12 +32,12 @@ const App: React.FC = () => {
             .catch((err) => console.log(err));
     };
 
-    useEffect(() => {
-        getVeganMakeupData();
-        getCrueltyFreeMakeupData();
-    }, []);
-
     //console.log(crueltyFreeMakeupData);
+
+    interface Shade {
+        hex_value: string;
+        colour_name: string;
+    }
 
     interface Product {
         id: number;
@@ -44,6 +46,7 @@ const App: React.FC = () => {
         description: string;
         brand: string;
         product_type: string;
+        product_colors: Shade[];
     }
 
     const cleanedProductsData = (anyData: any[]): Product[] => {
@@ -54,6 +57,7 @@ const App: React.FC = () => {
             description: item.description,
             brand: item.brand,
             product_type: item.product_type,
+            product_colors: item.product_colors,
         }));
     };
 
@@ -61,6 +65,20 @@ const App: React.FC = () => {
     //console.log(cleanedVeganData);
 
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
+    console.log("data:", cleanedCrueltyFreeData);
+
+    console.log(cleanedCrueltyFreeData.length);
+    const crueltyFreeShades = [...cleanedCrueltyFreeData].map((data) => {
+        return data.product_colors;
+    });
+    // console.log(crueltyFreeShades);
+    // console.log(crueltyFreeShades[0]);
+
+    useEffect(() => {
+        getVeganMakeupData();
+        getCrueltyFreeMakeupData();
+    }, []);
+
     //console.log(cleanedCrueltyFreeData);
 
     //filter data here use this video how to pass info from child to parent component
@@ -86,49 +104,64 @@ const App: React.FC = () => {
         productData: Product[],
         productType: string
     ) => {
-
-        if(productType === "lips"){
+        if (productType === "lips") {
             const filteredProductByTypeData = productData
-            .map((item) => ({
-                id: item.id,
-                image_link: item.image_link,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                product_type: item.product_type,
-            }))
-            .filter((item) => item.product_type.includes("lip_liner") || item.product_type.includes("lipstick"));
-            return filteredProductByTypeData; 
+                .map((item) => ({
+                    id: item.id,
+                    image_link: item.image_link,
+                    name: item.name,
+                    description: item.description,
+                    brand: item.brand,
+                    product_type: item.product_type,
+                    product_colors: item.product_colors,
+                }))
+                .filter(
+                    (item) =>
+                        item.product_type.includes("lip_liner") ||
+                        item.product_type.includes("lipstick")
+                );
+            return filteredProductByTypeData;
         }
 
-        if(productType === "eyes"){
+        if (productType === "eyes") {
             const filteredProductByTypeData = productData
-            .map((item) => ({
-                id: item.id,
-                image_link: item.image_link,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                product_type: item.product_type,
-            }))
-            .filter((item) => item.product_type.includes("eyeliner") || item.product_type.includes("eyeshadow") || item.product_type.includes("mascara"));
-            return filteredProductByTypeData; 
+                .map((item) => ({
+                    id: item.id,
+                    image_link: item.image_link,
+                    name: item.name,
+                    description: item.description,
+                    brand: item.brand,
+                    product_type: item.product_type,
+                    product_colors: item.product_colors,
+                }))
+                .filter(
+                    (item) =>
+                        item.product_type.includes("eyeliner") ||
+                        item.product_type.includes("eyeshadow") ||
+                        item.product_type.includes("mascara")
+                );
+            return filteredProductByTypeData;
         }
 
-        if(productType === "face"){
+        if (productType === "face") {
             const filteredProductByTypeData = productData
-            .map((item) => ({
-                id: item.id,
-                image_link: item.image_link,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                product_type: item.product_type,
-            }))
-            .filter((item) => item.product_type.includes("foundation") || item.product_type.includes("blush") || item.product_type.includes("bronzer"));
-            return filteredProductByTypeData; 
+                .map((item) => ({
+                    id: item.id,
+                    image_link: item.image_link,
+                    name: item.name,
+                    description: item.description,
+                    brand: item.brand,
+                    product_type: item.product_type,
+                    product_colors: item.product_colors,
+                }))
+                .filter(
+                    (item) =>
+                        item.product_type.includes("foundation") ||
+                        item.product_type.includes("blush") ||
+                        item.product_type.includes("bronzer")
+                );
+            return filteredProductByTypeData;
         }
-
 
         const filteredProductByTypeData = productData
             .map((item) => ({
@@ -138,6 +171,7 @@ const App: React.FC = () => {
                 description: item.description,
                 brand: item.brand,
                 product_type: item.product_type,
+                product_colors: item.product_colors,
             }))
             .filter((item) => item.product_type.includes(productType));
 
@@ -147,20 +181,23 @@ const App: React.FC = () => {
     return (
         <div>
             <div>{`Im the grandparent app but product is ${productType}`}</div>
-            <Nav getTypeOfProduct={getTypeOfProduct}/>
+
+            <Nav getTypeOfProduct={getTypeOfProduct} />
             <main className="main">
                 <Aside getTypeOfProduct={getTypeOfProduct} />
                 {cleanedCrueltyFreeData && cleanedVeganData ? (
-                    <Dashboard
-                        veganMakeupData={filteredProductByType(
-                            cleanedVeganData,
-                            productType
-                        )}
-                        crueltyFreeMakeupData={filteredProductByType(
-                            cleanedCrueltyFreeData,
-                            productType
-                        )}
-                    />
+                    <div>
+                        <Dashboard
+                            veganMakeupData={filteredProductByType(
+                                cleanedVeganData,
+                                productType
+                            )}
+                            crueltyFreeMakeupData={filteredProductByType(
+                                cleanedCrueltyFreeData,
+                                productType
+                            )}
+                        />
+                    </div>
                 ) : (
                     <p>loading...</p>
                 )}

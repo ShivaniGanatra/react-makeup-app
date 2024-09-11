@@ -1,0 +1,21 @@
+@use "./../../assets/styles/variables" as*;
+.button {
+
+    padding: 10px;
+    font-size: 30px;
+    font-family: Parisienne;
+    margin: 10px;
+    border: none;
+
+    &--primary {
+        background-color: $primary-color;
+        
+        
+    }
+
+    &--secondary {
+        background-color: $primary-color;
+    }
+
+
+}

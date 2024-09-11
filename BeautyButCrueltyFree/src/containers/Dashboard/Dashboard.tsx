@@ -1,13 +1,19 @@
 import "./Dashboard.scss";
 import MakeupCard from "./../../components/MakeupProduct/MakeupProduct";
 
+interface Shade {
+    hex_value: string
+    colour_name: string 
+}
+
 interface MakeupProps {
     id: number;
     image_link: string;
     name: string;
     description: string;
     brand: string;
-    product_type:string
+    product_type:string,
+    product_colors:Shade[]
 }
 
 type DashboardProps = {
@@ -31,6 +37,7 @@ const Dashboard = ({
                     brand={veganMakeup.brand}
                     variant="green"
                     product_type={veganMakeup.product_type}
+                    product_colors={veganMakeup.product_colors}
                 />
             ))}
 
@@ -44,6 +51,7 @@ const Dashboard = ({
                     brand={crueltyFreeMakeup.brand}
                     variant="purple"
                     product_type={crueltyFreeMakeup.product_type}
+                    product_colors={crueltyFreeMakeup.product_colors}
                 />
             ))}
         </div>
