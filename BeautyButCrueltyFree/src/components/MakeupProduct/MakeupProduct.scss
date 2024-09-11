@@ -10,3 +10,18 @@
     border-radius: 0px 0PX 10PX 10PX;
     border: 0px;
 }
+
+
+
+@media screen and (min-width:768px){
+    .front,.back{
+        margin: 10px;
+    }
+    .front__button, .back__button {
+        background-color: $quinary-color;
+        width: 275px;
+        padding: 10px;
+        border-radius: 0px 0PX 10PX 10PX;
+        border: 0px;
+    }
+}

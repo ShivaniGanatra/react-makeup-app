@@ -1,16 +1,14 @@
 @use "./../../assets/styles/variables" as*;
+
 .button {
 
     padding: 10px;
     font-size: 30px;
-    font-family: Parisienne;
-    margin: 10px;
+    width: 100%;
     border: none;
 
     &--primary {
         background-color: $primary-color;
-        
-        
     }
 
     &--secondary {
@@ -18,4 +16,27 @@
     }
 
 
+}
+
+@media screen and (min-width:768px){
+    .button {
+
+        padding: 10px;
+        font-size: 30px;
+        font-family: Parisienne;
+        margin: 10px;
+        border: none;
+    
+        &--primary {
+            background-color: $primary-color;
+            
+            
+        }
+    
+        &--secondary {
+            background-color: $primary-color;
+        }
+    
+    
+    }
 }

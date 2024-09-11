@@ -23,11 +23,6 @@ enum ImageLoadingState {
     Error,
 }
 
-const myComponentStyle = {
-    color: "$color",
-    lineHeight: 10,
-    padding: "1.5em",
-};
 
 const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
     name,

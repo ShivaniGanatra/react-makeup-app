@@ -5,7 +5,7 @@ import Aside from "./containers/Aside/Aside";
 // import { useEffect, useState} from "react";
 import { useEffect, useState } from "react";
 
-import Shade from "./components/Shade/Shade";
+
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -68,9 +68,7 @@ const App: React.FC = () => {
     console.log("data:", cleanedCrueltyFreeData);
 
     console.log(cleanedCrueltyFreeData.length);
-    const crueltyFreeShades = [...cleanedCrueltyFreeData].map((data) => {
-        return data.product_colors;
-    });
+  
     // console.log(crueltyFreeShades);
     // console.log(crueltyFreeShades[0]);
 
@@ -180,8 +178,6 @@ const App: React.FC = () => {
 
     return (
         <div>
-            <div>{`Im the grandparent app but product is ${productType}`}</div>
-
             <Nav getTypeOfProduct={getTypeOfProduct} />
             <main className="main">
                 <Aside getTypeOfProduct={getTypeOfProduct} />

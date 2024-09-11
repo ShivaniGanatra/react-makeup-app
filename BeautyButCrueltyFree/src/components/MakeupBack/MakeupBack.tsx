@@ -8,7 +8,7 @@ interface MakeupCardBackProps {
   variant:string
 }
 
-const MakeupCardBack: React.FC<MakeupCardBackProps> = ({ id, description, variant }) => {
+const MakeupCardBack: React.FC<MakeupCardBackProps> = ({  description, variant }) => {
   return (
     <div className={`makeupBack makeupBack__${variant}`}>
 

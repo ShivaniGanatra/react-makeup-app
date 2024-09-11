@@ -8,7 +8,8 @@ interface AsideProps {
 const Aside:React.FC<AsideProps> = ({getTypeOfProduct}) => {
     
     return <aside className="aside">
-        <button onClick={() => getTypeOfProduct("")} className="aside__button">All Products</button>
+        <div className="but">
+        <button onClick={() => getTypeOfProduct("")} className="aside__button">All Products</button></div>
         <ChecklistSection getTypeOfProduct={getTypeOfProduct} variant= "Vegan"/>
         <ChecklistSection getTypeOfProduct={getTypeOfProduct} variant= "Cruelty Free"/>
 

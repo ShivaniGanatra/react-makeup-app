@@ -28,7 +28,7 @@ const Search:React.FC<SearchProps> = ({getTypeOfProduct}) => {
     <div className="search">
       <input onChange={handleChange} className="search__input" placeholder="search for makeup items" type="text" />
       <p>{search}</p>
-      <button onClick={submitFunction} onChange={submitFunction} >doubl click</button>
+      <button className="search__button" onClick={submitFunction} onChange={submitFunction} >click</button>
     </div>
   )
 }
