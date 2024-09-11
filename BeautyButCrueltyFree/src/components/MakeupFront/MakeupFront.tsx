@@ -23,7 +23,6 @@ enum ImageLoadingState {
     Error,
 }
 
-
 const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
     name,
     image_link,
@@ -77,14 +76,16 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
     if (imageLoadingState === ImageLoadingState.Error) {
         return (
             <div className={`makeupFront makeupFront__${variant}`}>
-                <img
-                    className="makeupFront__image"
-                    src={getRandomImageFromArray(
-                        randomMakeupImagesInCaseOfError
-                    )}
-                    alt={product_type}
-                />
-                <h2 className="makeupFront__name">error {name}</h2>
+                <div className="makeupFront__image-center">
+                    <img
+                        className="makeupFront__image"
+                        src={getRandomImageFromArray(
+                            randomMakeupImagesInCaseOfError
+                        )}
+                        alt={product_type}
+                    />
+                </div>
+                <h2 className="makeupFront__name">{name}</h2>
                 <p className="makeupFront__brand">{brand}</p>
                 {product_colors.length > 1 ? (
                     <ShadeSection product_colors={product_colors} />
@@ -97,15 +98,20 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
 
     return (
         <div className={`makeupFront makeupFront__${variant}`}>
-            <img
-                className="makeupFront__image"
-                src={image_link}
-                alt={product_type}
-                onLoad={() => setImageLoadingState(ImageLoadingState.Complete)}
-                onError={() => {
-                    setImageLoadingState(ImageLoadingState.Error);
-                }}
-            />
+            <div className="makeupFront__image-center">
+                <img
+                    className="makeupFront__image"
+                    src={image_link}
+                    alt={product_type}
+                    onLoad={() =>
+                        setImageLoadingState(ImageLoadingState.Complete)
+                    }
+                    onError={() => {
+                        setImageLoadingState(ImageLoadingState.Error);
+                    }}
+                />
+            </div>
+
             <h2 className="makeupFront__name">{name}</h2>
             <p className="makeupFront__brand">{brand}</p>
             {product_colors.length > 1 ? (

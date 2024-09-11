@@ -28,15 +28,18 @@
 }
 
 .pop-up{
+
     display: flex;
     flex-direction: column;
-    //justify-content: center;
     padding: 15px;
     align-items: center;
-    background-color: $primary-color;
-
+    background-image: linear-gradient(white, lighten($primary-color,1%));
+    justify-content: center;
     height: 250px;
     border-radius: 20px;
+    font-family: Quicksand;
+    text-align: center;
+    
 } 
 
 

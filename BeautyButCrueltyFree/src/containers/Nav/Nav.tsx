@@ -19,7 +19,8 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProduct }) => {
             <NavButtons label="Featured Products" variant="secondary" />
 
             <div className="pop-up">
-                <h1>Hey Gorgeous</h1>
+                <button>x</button>
+                <p>Hey Gorgeous</p>
                 <p>input form element</p>
             
                 <p>To get emails of marketing offers please sign up</p>

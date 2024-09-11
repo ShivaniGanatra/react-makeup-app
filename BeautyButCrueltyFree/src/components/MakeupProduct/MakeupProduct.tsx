@@ -55,8 +55,8 @@ const MakeupCard: React.FC<MakeupCardProps> = ({
                     product_type={product_type}
                     product_colors={product_colors}
                 />
-                <button className="front__button" onClick={handleClick}>
-                    Contents
+                <button className={`front__button front__button--${variant}`} onClick={handleClick}>
+                    ^
                 </button>
             </div>
 
@@ -66,8 +66,8 @@ const MakeupCard: React.FC<MakeupCardProps> = ({
                     description={description}
                     variant={variant}
                 />
-                <button className="back__button" onClick={handleClick}>
-                    Image
+                <button className={`back__button back__button--${variant}`} onClick={handleClick}>
+                    ^
                 </button>
             </div>
         </ReactCardFlip>

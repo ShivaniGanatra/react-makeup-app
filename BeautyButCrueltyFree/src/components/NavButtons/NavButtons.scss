@@ -1,11 +1,12 @@
 @use "./../../assets/styles/variables" as*;
 
 .button {
-
+    color: $teriary-color;
     padding: 10px;
-    font-size: 30px;
+    font-size: 24px;
     width: 100%;
     border: none;
+    font-family: Quicksand;
 
     &--primary {
         background-color: $primary-color;

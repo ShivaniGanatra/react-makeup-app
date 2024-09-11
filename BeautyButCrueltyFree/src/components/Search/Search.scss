@@ -3,14 +3,18 @@
 
 .search{
     display: flex;
-    justify-content: space-around;
-    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    font-family: Quicksand;
+
 
 
     &__input {
         border: 3px darken($primary-color, 10%) solid;
         border-radius: 30px;
         padding: 10px;
+        width: 80vw;
+        height: 30px;
     }
 
     &__button{
