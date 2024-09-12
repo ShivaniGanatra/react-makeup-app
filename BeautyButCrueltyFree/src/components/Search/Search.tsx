@@ -2,18 +2,16 @@ import { FormEvent, useState } from "react";
 import "./Search.scss";
 
 interface SearchProps {
-  getTypeOfSearchProduct(product: string): void;
+    getTypeOfProductInSearch(product: string): void;
 }
 
-const Search: React.FC<SearchProps> = ({getTypeOfSearchProduct}) => {
+const Search: React.FC<SearchProps> = ({getTypeOfProductInSearch}) => {
     const [searchTerm, setSearchTerm] = useState<string>("");
 
     const handleInput = (event: FormEvent<HTMLInputElement>) => {
         const cleanInput = event.currentTarget.value.toLowerCase();
         setSearchTerm(cleanInput);
     };
-
-
 
     return (
         <div className="search">
@@ -23,7 +21,7 @@ const Search: React.FC<SearchProps> = ({getTypeOfSearchProduct}) => {
                 className="search__input"
                 type="text"
             />
-            {getTypeOfSearchProduct(searchTerm) as unknown as string}
+            {getTypeOfProductInSearch(searchTerm) as unknown as string}
         </div>
     );
 };

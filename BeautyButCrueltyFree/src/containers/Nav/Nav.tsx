@@ -2,11 +2,12 @@ import "./Nav.scss";
 import Search from "./../../components/Search/Search";
 import NavButtons from "./../../components/NavButtons/NavButtons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface NavProps {
-    getTypeOfSearchProduct(product: string): void;
+    getTypeOfProductInSearch(product: string): void;
 }
-const Nav: React.FC<NavProps> = ({ getTypeOfSearchProduct }) => {
+const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
     const [showNav, setShowNav] = useState(false);
     const toggleNav = () => {
         setShowNav(!showNav);
@@ -19,12 +20,11 @@ const Nav: React.FC<NavProps> = ({ getTypeOfSearchProduct }) => {
                     click
                 </button>
 
-
-                <Search getTypeOfSearchProduct={getTypeOfSearchProduct} />
+                <Search getTypeOfProductInSearch={getTypeOfProductInSearch} />
             </div>
             <h1 className="nav__heading">Beauty but cruelty free</h1>
             <div className="nav-center">
-            {showNav && (
+                {showNav && (
                     <div className="pop-up" onClick={toggleNav}>
                         <button>x</button>
                         <p>Hey Gorgeous</p>
@@ -33,11 +33,19 @@ const Nav: React.FC<NavProps> = ({ getTypeOfSearchProduct }) => {
                         <p>To get emails of marketing offers please sign up</p>
                     </div>
                 )}
-                </div>
+            </div>
             <div>
-                <NavButtons label="Home Page" variant="primary" />
-                <NavButtons label="Featured Brands" variant="primary" />
-                <NavButtons label="Featured Products" variant="secondary" />
+                <Link to="/">
+                    <NavButtons label="Home Page" variant="primary" />
+                </Link>
+
+                <Link to="/test">
+                    <NavButtons label="Featured Brands" variant="primary" />
+                </Link>
+
+                <Link to="/test2">
+                    <NavButtons label="Featured Products" variant="secondary" />
+                </Link>
             </div>
         </nav>
     );

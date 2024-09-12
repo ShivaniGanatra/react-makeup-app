@@ -2,6 +2,7 @@ import "./App.scss";
 import Nav from "./containers/Nav/Nav";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import Aside from "./containers/Aside/Aside";
+import Brands from "./containers/Brands/Brands";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -63,9 +64,7 @@ const App: React.FC = () => {
     //console.log(cleanedVeganData);
 
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
-    console.log("data:", cleanedCrueltyFreeData);
-
-    console.log(cleanedCrueltyFreeData.length);
+    //console.log("data:", cleanedCrueltyFreeData);
 
     // console.log(crueltyFreeShades);
     // console.log(crueltyFreeShades[0]);
@@ -75,15 +74,13 @@ const App: React.FC = () => {
         getCrueltyFreeMakeupData();
     }, []);
 
-    const [productType, setProductType] = useState("dont show initially");
+    const [productType, setProductType] = useState("");
 
     const getTypeOfProduct = (product: string): void => {
         setProductType(product);
     };
 
-    const [searchProductType, setSearchProductType] = useState(
-        "dont show initially"
-    );
+    const [searchProductType, setSearchProductType] = useState("");
 
     const getTypeOfProductInSearch = (product: string): void => {
         setSearchProductType(product);
@@ -93,6 +90,25 @@ const App: React.FC = () => {
         const products = productType.split(",");
         console.log(products);
     }
+
+    const filteredByProductBrand = (
+        productData: Product[],
+        productType: string
+    ) => {
+        const filteredProductByTypeData = productData
+            .map((item) => ({
+                id: item.id,
+                image_link: item.image_link,
+                name: item.name,
+                description: item.description,
+                brand: item.brand,
+                product_type: item.product_type,
+                product_colors: item.product_colors,
+            }))
+            .filter((item) => item.name.includes(productType));
+
+        return filteredProductByTypeData;
+    };
 
     const filteredProductByType = (
         productData: Product[],
@@ -172,9 +188,11 @@ const App: React.FC = () => {
         return filteredProductByTypeData;
     };
 
+    //console.log(filteredByProductBrand(cleanedCrueltyFreeData,"deciem"))
+
     return (
         <BrowserRouter>
-            <Nav getTypeOfSearchProduct={getTypeOfProductInSearch} />
+            <Nav getTypeOfProductInSearch={getTypeOfProductInSearch} />
 
             <Routes>
                 <Route
@@ -189,17 +207,9 @@ const App: React.FC = () => {
                                             cleanedVeganData,
                                             productType
                                         )}
-                                        veganSearchMakeupData={filteredProductByType(
-                                            cleanedVeganData,
-                                            searchProductType
-                                        )}
                                         crueltyFreeMakeupData={filteredProductByType(
                                             cleanedCrueltyFreeData,
                                             productType
-                                        )}
-                                        crueltyFreeSearchMakeupData={filteredProductByType(
-                                            cleanedCrueltyFreeData,
-                                            searchProductType
                                         )}
                                     />
                                 </div>
@@ -209,7 +219,27 @@ const App: React.FC = () => {
                         </main>
                     }
                 />
-                <Route path="/test" element={<div>test</div>} />
+                <Route
+                    path="/test"
+                    element={
+                        <div>
+                            {cleanedCrueltyFreeData && cleanedVeganData ? (
+                                <Brands
+                                    crueltyFreeSearchMakeupData={filteredByProductBrand(
+                                        cleanedCrueltyFreeData,
+                                        searchProductType
+                                    )}
+                                    veganSearchMakeupData={filteredByProductBrand(
+                                    cleanedVeganData,
+                                        searchProductType
+                                    )}
+                                />
+                            ) : (
+                                <p>loading:</p>
+                            )}
+                        </div>
+                    }
+                />
                 <Route path="/test2" element={<div>test2</div>} />
             </Routes>
         </BrowserRouter>

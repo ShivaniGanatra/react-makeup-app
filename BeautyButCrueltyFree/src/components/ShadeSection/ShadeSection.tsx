@@ -5,7 +5,7 @@ type ShadeSectionProps = {
 };
 
 const ShadeSection = ({ product_colors }: ShadeSectionProps) => {
-    console.log(product_colors);
+
     // In the component above - MakeupFront, check if the product actually has shades, if not do not render a shadeSection
     // Shade component is a little box with the shade color passed to it to change depending on the hex code
 
@@ -14,8 +14,8 @@ const ShadeSection = ({ product_colors }: ShadeSectionProps) => {
     return (
         <div className="shade-section">
 
-        {product_colors.map((color)=> (
-          <Shade color={color.hex_value}/>
+        {product_colors.map((color,index)=> (
+          <Shade key={color.colour_name + index} color={color.hex_value}/>
         ))}
             
         </div>

@@ -1,4 +1,4 @@
-import "./Dashboard.scss";
+import "./Brands.scss";
 import MakeupCard from "./../../components/MakeupProduct/MakeupProduct";
 
 interface Shade {
@@ -16,19 +16,15 @@ interface MakeupProps {
     product_colors: Shade[];
 }
 
-type DashboardProps = {
-    veganMakeupData: MakeupProps[];
-    crueltyFreeMakeupData: MakeupProps[];
-};
+type BrandProps = {
+    veganSearchMakeupData: MakeupProps[];
+    crueltyFreeSearchMakeupData: MakeupProps[];  
+}
 
-const Dashboard = ({
-    veganMakeupData,
-    crueltyFreeMakeupData,
-}: 
-DashboardProps) => {
-    return (
-        <div className="dashboard">
-            {veganMakeupData.map((veganMakeup) => (
+const Brands = ({crueltyFreeSearchMakeupData,veganSearchMakeupData}:BrandProps) => {
+  return (
+    <div>
+                    {veganSearchMakeupData.map((veganMakeup) => (
                 <MakeupCard
                     key={veganMakeup.id}
                     id={veganMakeup.id}
@@ -42,7 +38,8 @@ DashboardProps) => {
                 />
             ))}
 
-            {crueltyFreeMakeupData.map((crueltyFreeMakeup) => (
+
+{crueltyFreeSearchMakeupData.map((crueltyFreeMakeup) => (
                 <MakeupCard
                     key={crueltyFreeMakeup.id}
                     id={crueltyFreeMakeup.id}
@@ -55,8 +52,8 @@ DashboardProps) => {
                     product_colors={crueltyFreeMakeup.product_colors}
                 />
             ))}
-        </div>
-    );
-};
+    </div>
+  )
+}
 
-export default Dashboard;
+export default Brands

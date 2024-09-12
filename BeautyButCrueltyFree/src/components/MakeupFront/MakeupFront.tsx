@@ -34,13 +34,11 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
     const [imageLoadingState, setImageLoadingState] =
         useState<ImageLoadingState>(ImageLoadingState.Init);
     useEffect(() => {
-        console.log("image:", image_link);
         setImageLoadingState(
             image_link ? ImageLoadingState.Loading : ImageLoadingState.Error
         );
     }, [image_link]);
 
-    //console.log(imageLoadingState)
     if (!image_link) {
         return null;
     }
@@ -59,15 +57,10 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
             Math.random() * images.length
         );
         const image: string = images[randomNumberBetween0andLastIndex];
-        //console.log(image + " index is " + randomNumberBetween0andLastIndex);
+
         return image as string;
     };
-    console.log(
-        "imageloadingstate:",
-        imageLoadingState,
-        "ImageLoadingState.Error: ",
-        ImageLoadingState.Error
-    );
+
     if (imageLoadingState === ImageLoadingState.Error) {
         return (
             <div className={`makeupFront makeupFront__${variant}`}>
