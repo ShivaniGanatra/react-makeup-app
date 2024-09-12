@@ -3,33 +3,31 @@
 .makeupBack {
     background-color: $secondary-color;
     width: 90vw;
+    max-width: 300px;
     height: 400px;
     border-radius: 10px 10PX 0PX 0PX;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    //padding: 10px;
     font-family: Poppins;
 
     &__green {
-        background-image: linear-gradient(lighten($senary-color,3%),white,lighten($senary-color,3%));
+        background-image: linear-gradient(lighten($senary-color, 3%), white, lighten($senary-color, 3%));
     }
 
     &__purple {
-        background-image: linear-gradient(lighten($septenary-color,7%),white,lighten($septenary-color,9%))
+        background-image: linear-gradient(lighten($septenary-color, 7%), white, lighten($septenary-color, 9%))
     }
 
-    &__description{
+    &__description {
         width: 250px;
-        height: 350px; /* set a fixed height for the div */
-        overflow-y: scroll; /* enable vertical scrollbar */
-
+        height: 350px;
+        overflow-y: scroll;
     }
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     .makeupBack {
         width: 275px;
-}
+    }
 }
