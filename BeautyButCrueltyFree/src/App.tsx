@@ -6,6 +6,8 @@ import Brands from "./containers/Brands/Brands";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Product from "./types & interfaces/Product";
+import filteredProductByType from "./functions/filter_data/FilterByProductType";
+import filteredByProductBrand from "./functions/filter_data/FilterByProductBrand";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -70,103 +72,6 @@ const App: React.FC = () => {
         const products = productType.split(",");
         console.log(products);
     }
-
-    const filteredByProductBrand = (
-        productData: Product[],
-        productType: string
-    ) => {
-        const filteredProductByTypeData = productData
-            .map((item) => ({
-                id: item.id,
-                image_link: item.image_link,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                product_type: item.product_type,
-                product_colors: item.product_colors,
-            }))
-            .filter((item) => item.name.includes(productType));
-
-        return filteredProductByTypeData;
-    };
-
-    const filteredProductByType = (
-        productData: Product[],
-        productType: string
-    ) => {
-        if (productType === "lips") {
-            const filteredProductByTypeData = productData
-                .map((item) => ({
-                    id: item.id,
-                    image_link: item.image_link,
-                    name: item.name,
-                    description: item.description,
-                    brand: item.brand,
-                    product_type: item.product_type,
-                    product_colors: item.product_colors,
-                }))
-                .filter(
-                    (item) =>
-                        item.product_type.includes("lip_liner") ||
-                        item.product_type.includes("lipstick")
-                );
-            return filteredProductByTypeData;
-        }
-
-        if (productType === "eyes") {
-            const filteredProductByTypeData = productData
-                .map((item) => ({
-                    id: item.id,
-                    image_link: item.image_link,
-                    name: item.name,
-                    description: item.description,
-                    brand: item.brand,
-                    product_type: item.product_type,
-                    product_colors: item.product_colors,
-                }))
-                .filter(
-                    (item) =>
-                        item.product_type.includes("eyeliner") ||
-                        item.product_type.includes("eyeshadow") ||
-                        item.product_type.includes("mascara")
-                );
-            return filteredProductByTypeData;
-        }
-
-        if (productType === "face") {
-            const filteredProductByTypeData = productData
-                .map((item) => ({
-                    id: item.id,
-                    image_link: item.image_link,
-                    name: item.name,
-                    description: item.description,
-                    brand: item.brand,
-                    product_type: item.product_type,
-                    product_colors: item.product_colors,
-                }))
-                .filter(
-                    (item) =>
-                        item.product_type.includes("foundation") ||
-                        item.product_type.includes("blush") ||
-                        item.product_type.includes("bronzer")
-                );
-            return filteredProductByTypeData;
-        }
-
-        const filteredProductByTypeData = productData
-            .map((item) => ({
-                id: item.id,
-                image_link: item.image_link,
-                name: item.name,
-                description: item.description,
-                brand: item.brand,
-                product_type: item.product_type,
-                product_colors: item.product_colors,
-            }))
-            .filter((item) => item.product_type.includes(productType));
-
-        return filteredProductByTypeData;
-    };
 
     return (
         <BrowserRouter>
