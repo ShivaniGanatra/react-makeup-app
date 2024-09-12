@@ -3,6 +3,7 @@ import Nav from "./containers/Nav/Nav";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import Aside from "./containers/Aside/Aside";
 import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -65,7 +66,7 @@ const App: React.FC = () => {
     console.log("data:", cleanedCrueltyFreeData);
 
     console.log(cleanedCrueltyFreeData.length);
-  
+
     // console.log(crueltyFreeShades);
     // console.log(crueltyFreeShades[0]);
 
@@ -74,14 +75,15 @@ const App: React.FC = () => {
         getCrueltyFreeMakeupData();
     }, []);
 
-
     const [productType, setProductType] = useState("dont show initially");
 
     const getTypeOfProduct = (product: string): void => {
         setProductType(product);
     };
 
-    const [searchProductType, setSearchProductType] = useState("dont show initially");
+    const [searchProductType, setSearchProductType] = useState(
+        "dont show initially"
+    );
 
     const getTypeOfProductInSearch = (product: string): void => {
         setSearchProductType(product);
@@ -165,53 +167,53 @@ const App: React.FC = () => {
                 product_type: item.product_type,
                 product_colors: item.product_colors,
             }))
-            .filter((item) => item.product_type.includes(productType) );
+            .filter((item) => item.product_type.includes(productType));
 
         return filteredProductByTypeData;
     };
 
-
-
     return (
-        <div>
+        <BrowserRouter>
             <Nav getTypeOfSearchProduct={getTypeOfProductInSearch} />
-            <main className="main">
-                <Aside getTypeOfProduct={getTypeOfProduct} />
-                {cleanedCrueltyFreeData && cleanedVeganData ? (
-                    <div>
-                        <Dashboard
-                            veganMakeupData={filteredProductByType(
-                                cleanedVeganData,
-                                productType
+
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <main className="main">
+                            <Aside getTypeOfProduct={getTypeOfProduct} />
+                            {cleanedCrueltyFreeData && cleanedVeganData ? (
+                                <div>
+                                    <Dashboard
+                                        veganMakeupData={filteredProductByType(
+                                            cleanedVeganData,
+                                            productType
+                                        )}
+                                        veganSearchMakeupData={filteredProductByType(
+                                            cleanedVeganData,
+                                            searchProductType
+                                        )}
+                                        crueltyFreeMakeupData={filteredProductByType(
+                                            cleanedCrueltyFreeData,
+                                            productType
+                                        )}
+                                        crueltyFreeSearchMakeupData={filteredProductByType(
+                                            cleanedCrueltyFreeData,
+                                            searchProductType
+                                        )}
+                                    />
+                                </div>
+                            ) : (
+                                <p>loading...</p>
                             )}
-
-                            veganSearchMakeupData={filteredProductByType(
-                                cleanedVeganData,
-                                searchProductType
-                            )}
-
-                            crueltyFreeMakeupData={filteredProductByType(
-                                cleanedCrueltyFreeData,
-                                productType
-                            )}
-
-
-
-                            crueltyFreeSearchMakeupData={filteredProductByType(
-                                cleanedCrueltyFreeData,
-                                searchProductType
-                            )}
-                            
-                        />
-                    </div>
-                ) : (
-                    <p>loading...</p>
-                )}
-            </main>
-        </div>
+                        </main>
+                    }
+                />
+                <Route path="/test" element={<div>test</div>} />
+                <Route path="/test2" element={<div>test2</div>} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 
 export default App;
-
-
