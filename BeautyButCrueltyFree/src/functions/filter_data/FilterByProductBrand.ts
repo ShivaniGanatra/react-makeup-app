@@ -1,8 +1,6 @@
 import Product from "../../types & interfaces/Product";
-const filteredByProductBrand = (
-    productData: Product[],
-    productType: string
-) => {
+
+export const filteredByProductBrand =(productData: Product[],productBrand: string) => {
     const filteredProductByTypeData = productData
         .map((item) => ({
             id: item.id,
@@ -13,9 +11,10 @@ const filteredByProductBrand = (
             product_type: item.product_type,
             product_colors: item.product_colors,
         }))
-        .filter((item) => item.name.includes(productType));
+        .filter((item) => item.brand && item.brand.includes(productBrand));
 
     return filteredProductByTypeData;
 };
 
-export default filteredByProductBrand
+
+

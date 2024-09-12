@@ -4,17 +4,12 @@
     color: $teriary-color;
     background-color: $quinary-color;
     width: 100%;
- 
-
-    
 
     &__search {
         padding: 20px 0px;
-    
-    
     }
 
-    &__heading{
+    &__heading {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,22 +18,19 @@
         margin: 0px;
         text-align: center;
         padding: 30px 0px;
-
     }
 
-    &__click{
+    &__click {
         width: 100px;
-        height:100px;
+        height: 100px;
     }
 }
 
-.pop-up{
-
+.pop-up {
     display: flex;
-
     padding: 15px;
     align-items: center;
-    background-image: linear-gradient(white, lighten($primary-color,1%));
+    background-image: linear-gradient(white, lighten($primary-color, 1%));
     justify-content: center;
     height: 250px;
     border-radius: 20px;
@@ -46,46 +38,37 @@
     text-align: center;
     position: absolute;
     z-index: 2;
-    
-} 
+}
+
 .nav-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     .nav {
         color: $teriary-color;
-
-
-        height:450px;
+        height: 450px;
         display: flex;
         flex-direction: column;
 
-        
-    
         &__search {
-        display: flex;
-        justify-content: space-between;
-        
-        
-        
+            display: flex;
+            justify-content: space-between;
         }
-    
-        &__heading{
+
+        &__heading {
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: "Parisienne";
             font-size: 60px;
             margin: 0px;
-    
         }
-    
     }
-    
-    .pop-up{
+
+    .pop-up {
         display: flex;
         flex-direction: column;
         //justify-content: center;
@@ -95,5 +78,5 @@
         width: 300px;
         height: 250px;
         border-radius: 20px;
-    }  
+    }
 }

@@ -5,13 +5,13 @@ import Aside from "./containers/Aside/Aside";
 import Brands from "./containers/Brands/Brands";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Product from "./types & interfaces/Product";
 import filteredProductByType from "./functions/filter_data/FilterByProductType";
-import filteredByProductBrand from "./functions/filter_data/FilterByProductBrand";
+import cleanedProductsData from "./functions/clean_data/clean_data";
+import { filteredByProductBrand } from "./functions/filter_data/FilterByProductBrand";
+import Product from "./types & interfaces/Product";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
-
     const [crueltyFreeMakeupData, setcrueltyFreeMakeupData] = useState<
         object[]
     >([]);
@@ -34,27 +34,13 @@ const App: React.FC = () => {
             .catch((err) => console.log(err));
     };
 
-    const cleanedProductsData = (anyData: any[]): Product[] => {
-        return anyData.map((item) => ({
-            id: item.id,
-            image_link: item.image_link,
-            name: item.name,
-            description: item.description,
-            brand: item.brand,
-            product_type: item.product_type,
-            product_colors: item.product_colors,
-        }));
-    };
-
     const cleanedVeganData = cleanedProductsData(veganMakeupData);
-
-
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
 
-    useEffect(() => {
-        getVeganMakeupData();
-        getCrueltyFreeMakeupData();
-    }, []);
+    const cleanedSearchVeganData = cleanedProductsData(veganMakeupData);
+    const cleanedCrueltySearchFreeData = cleanedProductsData(
+        crueltyFreeMakeupData
+    );
 
     const [productType, setProductType] = useState("");
 
@@ -72,6 +58,27 @@ const App: React.FC = () => {
         const products = productType.split(",");
         console.log(products);
     }
+
+    console.log(cleanedCrueltySearchFreeData);
+    console.log(cleanedSearchVeganData);
+
+    console.log(filteredByProductBrand(cleanedCrueltySearchFreeData, "deciem"));
+    console.log(filteredByProductBrand(cleanedSearchVeganData, "colourpop"));
+
+    const justBrands = (productData: Product[]) => {
+        const onlyBrandsArray = productData.map((product) => product.brand);
+        return onlyBrandsArray
+    };
+
+    useEffect(() => {
+        getVeganMakeupData();
+        getCrueltyFreeMakeupData();
+    }, []);
+
+    const veganBrands = justBrands(cleanedSearchVeganData);
+    console.log(veganBrands);
+    const crueltyFreeBrands = justBrands(cleanedCrueltySearchFreeData);
+    console.log(crueltyFreeBrands);
 
     return (
         <BrowserRouter>
@@ -109,11 +116,11 @@ const App: React.FC = () => {
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <Brands
                                     crueltyFreeSearchMakeupData={filteredByProductBrand(
-                                        cleanedCrueltyFreeData,
+                                        cleanedCrueltySearchFreeData,
                                         searchProductType
                                     )}
                                     veganSearchMakeupData={filteredByProductBrand(
-                                    cleanedVeganData,
+                                        cleanedSearchVeganData,
                                         searchProductType
                                     )}
                                 />

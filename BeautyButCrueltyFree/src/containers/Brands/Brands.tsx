@@ -1,10 +1,6 @@
 import "./Brands.scss";
 import MakeupCard from "./../../components/MakeupProduct/MakeupProduct";
-
-interface Shade {
-    hex_value: string;
-    colour_name: string;
-}
+import Shade from "../../types & interfaces/Shade";
 
 interface MakeupProps {
     id: number;
@@ -18,13 +14,16 @@ interface MakeupProps {
 
 type BrandProps = {
     veganSearchMakeupData: MakeupProps[];
-    crueltyFreeSearchMakeupData: MakeupProps[];  
-}
+    crueltyFreeSearchMakeupData: MakeupProps[];
+};
 
-const Brands = ({crueltyFreeSearchMakeupData,veganSearchMakeupData}:BrandProps) => {
-  return (
-    <div>
-                    {veganSearchMakeupData.map((veganMakeup) => (
+const Brands = ({
+    crueltyFreeSearchMakeupData,
+    veganSearchMakeupData,
+}: BrandProps) => {
+    return (
+        <div className="brands">
+            {veganSearchMakeupData.map((veganMakeup) => (
                 <MakeupCard
                     key={veganMakeup.id}
                     id={veganMakeup.id}
@@ -38,8 +37,7 @@ const Brands = ({crueltyFreeSearchMakeupData,veganSearchMakeupData}:BrandProps) 
                 />
             ))}
 
-
-{crueltyFreeSearchMakeupData.map((crueltyFreeMakeup) => (
+            {crueltyFreeSearchMakeupData.map((crueltyFreeMakeup) => (
                 <MakeupCard
                     key={crueltyFreeMakeup.id}
                     id={crueltyFreeMakeup.id}
@@ -52,8 +50,8 @@ const Brands = ({crueltyFreeSearchMakeupData,veganSearchMakeupData}:BrandProps) 
                     product_colors={crueltyFreeMakeup.product_colors}
                 />
             ))}
-    </div>
-  )
-}
+        </div>
+    );
+};
 
-export default Brands
+export default Brands;
