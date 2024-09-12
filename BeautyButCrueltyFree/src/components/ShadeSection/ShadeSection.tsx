@@ -6,11 +6,6 @@ type ShadeSectionProps = {
 
 const ShadeSection = ({ product_colors }: ShadeSectionProps) => {
 
-    // In the component above - MakeupFront, check if the product actually has shades, if not do not render a shadeSection
-    // Shade component is a little box with the shade color passed to it to change depending on the hex code
-
-    //Inline styling on whatever HTML element we are using to display the shade for this section.
-    // To render all the shades we will have to map through the array of object and render a Single Shade  component for each shade
     return (
         <div className="shade-section">
 

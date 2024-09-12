@@ -50,3 +50,9 @@ map over shades and make circle for a shade if theres time
 //find a way to have state in prior one and chnage state here using function
 // https://soufiane-oucherrou.medium.com/how-pass-function-as-props-to-child-in-react-and-typescript-2fafafa6a945
 //the varaint which is the title cruelty free and vegan will also need to be used to choose the array to use
+
+    // In the component above - MakeupFront, check if the product actually has shades, if not do not render a shadeSection
+    // Shade component is a little box with the shade color passed to it to change depending on the hex code
+
+    //Inline styling on whatever HTML element we are using to display the shade for this section.
+    // To render all the shades we will have to map through the array of object and render a Single Shade  component for each shade

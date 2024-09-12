@@ -5,6 +5,7 @@ import Aside from "./containers/Aside/Aside";
 import Brands from "./containers/Brands/Brands";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Product from "./types & interfaces/Product";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -31,23 +32,6 @@ const App: React.FC = () => {
             .catch((err) => console.log(err));
     };
 
-    //console.log(crueltyFreeMakeupData);
-
-    interface Shade {
-        hex_value: string;
-        colour_name: string;
-    }
-
-    interface Product {
-        id: number;
-        image_link: string;
-        name: string;
-        description: string;
-        brand: string;
-        product_type: string;
-        product_colors: Shade[];
-    }
-
     const cleanedProductsData = (anyData: any[]): Product[] => {
         return anyData.map((item) => ({
             id: item.id,
@@ -61,13 +45,9 @@ const App: React.FC = () => {
     };
 
     const cleanedVeganData = cleanedProductsData(veganMakeupData);
-    //console.log(cleanedVeganData);
+
 
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
-    //console.log("data:", cleanedCrueltyFreeData);
-
-    // console.log(crueltyFreeShades);
-    // console.log(crueltyFreeShades[0]);
 
     useEffect(() => {
         getVeganMakeupData();
@@ -187,8 +167,6 @@ const App: React.FC = () => {
 
         return filteredProductByTypeData;
     };
-
-    //console.log(filteredByProductBrand(cleanedCrueltyFreeData,"deciem"))
 
     return (
         <BrowserRouter>
