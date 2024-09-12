@@ -16,8 +16,8 @@ const Aside: React.FC<AsideProps> = ({ getTypeOfProduct }) => {
                     All Products
                 </button>
             </div>
-            <h1 className="checklist__title">Vegan</h1>
-            <h1 className="checklist__title">Cruelty free</h1>
+            <h1 className="aside__title">Vegan</h1>
+            <h1 className="aside__title">Cruelty free</h1>
             <ChecklistSection
                 getTypeOfProduct={getTypeOfProduct}
                 variant="Vegan"

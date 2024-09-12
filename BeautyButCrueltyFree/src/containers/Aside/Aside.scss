@@ -4,6 +4,21 @@
     background-color: darken($primary-color, 5%);
     border: 0px;
 
+    &__title {
+        background-color: $primary-color;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        margin: 0px;
+        font-size: 40px;
+        font-family: Parisienne;
+        border: 0px;
+        width: 100%;
+
+    }
+
     .but {
         display: flex;
         align-items: center;

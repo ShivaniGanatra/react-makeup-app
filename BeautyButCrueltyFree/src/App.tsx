@@ -66,8 +66,14 @@ const App: React.FC = () => {
     console.log(filteredByProductBrand(cleanedSearchVeganData, "colourpop"));
 
     const justBrands = (productData: Product[]) => {
+        const noRepeatedBrands: string[] = [];
         const onlyBrandsArray = productData.map((product) => product.brand);
-        return onlyBrandsArray
+        onlyBrandsArray.forEach((brand) => {
+            if (!noRepeatedBrands.includes(brand) && brand) {
+                noRepeatedBrands.push(brand);
+            }
+        });
+        return noRepeatedBrands;
     };
 
     useEffect(() => {
@@ -115,6 +121,9 @@ const App: React.FC = () => {
                         <div>
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <Brands
+                                    veganBrands={veganBrands}
+                                    crueltyFreeBrands={crueltyFreeBrands}
+                                    
                                     crueltyFreeSearchMakeupData={filteredByProductBrand(
                                         cleanedCrueltySearchFreeData,
                                         searchProductType

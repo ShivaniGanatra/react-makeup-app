@@ -15,14 +15,23 @@ interface MakeupProps {
 type BrandProps = {
     veganSearchMakeupData: MakeupProps[];
     crueltyFreeSearchMakeupData: MakeupProps[];
+    veganBrands:string[]
+    crueltyFreeBrands:string[]
 };
 
 const Brands = ({
     crueltyFreeSearchMakeupData,
-    veganSearchMakeupData,
+    veganSearchMakeupData,veganBrands,crueltyFreeBrands
 }: BrandProps) => {
     return (
-        <div className="brands">
+        <div className="brand">
+            <h2 className="brand__title">Filter by brands in search bar</h2>
+            <section className="brand__names">
+                <p className="brand__vegan">{`Vegan brands include: ${veganBrands.join(", ")}`}</p>
+                <p className=" brand__cruelty-free">{`Cruelty Free brands include: ${crueltyFreeBrands.join(", ")}`}</p>
+            </section>
+
+            <section className="brand__cards">
             {veganSearchMakeupData.map((veganMakeup) => (
                 <MakeupCard
                     key={veganMakeup.id}
@@ -50,6 +59,7 @@ const Brands = ({
                     product_colors={crueltyFreeMakeup.product_colors}
                 />
             ))}
+            </section>
         </div>
     );
 };
