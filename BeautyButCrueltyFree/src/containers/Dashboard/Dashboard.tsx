@@ -29,14 +29,7 @@ const Dashboard = ({
     veganSearchMakeupData,
     crueltyFreeSearchMakeupData,
 }: DashboardProps) => {
-
-
-
-
-
     return (
-
-
         <div className="dashboard">
             {veganMakeupData.map((veganMakeup) => (
                 <MakeupCard

@@ -4,8 +4,6 @@ import Dashboard from "./containers/Dashboard/Dashboard";
 import Aside from "./containers/Aside/Aside";
 import { useEffect, useState } from "react";
 
-
-
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
 
@@ -76,15 +74,6 @@ const App: React.FC = () => {
         getCrueltyFreeMakeupData();
     }, []);
 
-    //console.log(cleanedCrueltyFreeData);
-
-    //filter data here use this video how to pass info from child to parent component
-    //https://www.youtube.com/watch?v=vOMdzCw2bMA
-
-    // make function that loops through two state variables and updates them to create two new objects that only have specific properties that i wanna use
-    //store new new obejct in state
-
-    //https://www.google.com/search?q=how+to+pass+down+a+function+as+a+prop+react+ts&sca_esv=074f8b059443cf28&sca_upv=1&rlz=1C5MACD_enGB1034GB1034&ei=EqncZu3KIoDzi-gPxZikqQc&ved=0ahUKEwjtm96WyLGIAxWA-QIHHUUMKXUQ4dUDCA8&uact=5&oq=how+to+pass+down+a+function+as+a+prop+react+ts&gs_lp=Egxnd3Mtd2l6LXNlcnAiLmhvdyB0byBwYXNzIGRvd24gYSBmdW5jdGlvbiBhcyBhIHByb3AgcmVhY3QgdHMyCBAhGKABGMMEMggQIRigARjDBEj9KlC7GVi4J3ADeAGQAQCYAbwCoAHCDKoBBzIuNC4yLjG4AQPIAQD4AQGYAgmgAuMHwgIKEAAYsAMY1gQYR8ICChAhGKABGMMEGAqYAwCIBgGQBgiSBwU0LjQuMaAH9y8&sclient=gws-wiz-serp#fpstate=ive&vld=cid:d93df898,vid:yM64D3nZmfQ,st:303
 
     const [productType, setProductType] = useState("dont show initially");
 
@@ -181,6 +170,8 @@ const App: React.FC = () => {
         return filteredProductByTypeData;
     };
 
+
+
     return (
         <div>
             <Nav getTypeOfSearchProduct={getTypeOfProductInSearch} />
@@ -223,18 +214,4 @@ const App: React.FC = () => {
 
 export default App;
 
-// interface exampleObject {
-//     name: string;
-// }
 
-// const smallObjectsArrayExample: exampleObject[] = [
-//     { name: "lip gloss" },
-//     { name: "lip crayon" },
-//     { name: "lipstick" },
-//     { name: "nail varnish" },
-// ];
-
-// console.log(smallObjectsArrayExample)
-// console.log(filteredProduct(smallObjectsArrayExample,"lip gloss"))
-// console.log(filteredProduct(smallObjectsArrayExample,"lip"))
-// console.log(filteredProduct(smallObjectsArrayExample,"nail varnish"))

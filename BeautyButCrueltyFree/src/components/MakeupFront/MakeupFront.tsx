@@ -45,11 +45,6 @@ const MakeupCardFront: React.FC<MakeupCardFrontProps> = ({
         return null;
     }
 
-    //some of the images arent working so i want to have randomdefault images
-    //this is the resource that showed me what to do if an image isnt working
-    // https://www.youtube.com/watch?v=4nYsbm8N4EQ&t=934s
-    // if get time use name if name is foundation get random foundtion image lipstick image etc
-
     // TO DO - refactor utility functions to be insides of their own file and imported where and when needed
 
     const randomMakeupImagesInCaseOfError: string[] = [

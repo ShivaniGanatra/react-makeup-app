@@ -4,7 +4,7 @@
     border: 0px;
     background-color: $quartenernary-color;
     padding: 0px 0px 0px 0px;
-    
+
 
     &__title {
         background-color: $primary-color;
@@ -17,9 +17,10 @@
         font-size: 40px;
         font-family: Parisienne;
         border: 0px;
-        width:100%;
+        width: 100%;
 
     }
+
     &__section-title {
         background-color: $quinary-color;
         padding: 0px 0px;
@@ -29,27 +30,27 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width:100%;
+        width: 100%;
         border: none;
-        
+
     }
 
-    &__product-type{
+    &__product-type {
         padding: 0px 0px;
         font-family: "Poppins";
         border: 0px;
-        width:100%;
+        width: 100%;
         background-color: $quartenernary-color;
     }
 }
 
 
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     .checklist {
         border: 0px;
         background-color: $quartenernary-color;
         padding: 0px 0px 20px 0px;
-    
+
         &__title {
             background-color: $primary-color;
             height: 60px;
@@ -61,9 +62,10 @@
             font-size: 40px;
             font-family: Parisienne;
             border: 0px;
-            width:275px;
-    
+            width: 275px;
+
         }
+
         &__section-title {
             background-color: $quinary-color;
             padding: 0px 0px;
@@ -74,18 +76,17 @@
             justify-content: center;
             align-items: center;
             // border: 3px solid darken($quinary-color, 5%);
-            width:275px;
+            width: 275px;
             border: none;
-            
+
         }
-    
-        &__product-type{
+
+        &__product-type {
             padding: 0px 0px;
             font-family: "Poppins";
             border: 0px;
-            width:275px;
+            width: 275px;
             background-color: $quartenernary-color;
         }
     }
 }
-

@@ -13,7 +13,7 @@ const Search: React.FC<SearchProps> = ({getTypeOfSearchProduct}) => {
         setSearchTerm(cleanInput);
     };
 
-    // https://stackoverflow.com/questions/65582975/make-a-search-filter-with-react-and-typescript
+
 
     return (
         <div className="search">

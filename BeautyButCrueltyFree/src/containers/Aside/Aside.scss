@@ -1,55 +1,43 @@
 @use "./../../assets/styles/variables" as *;
 
 .aside {
-
     background-color: darken($primary-color, 5%);
-
     border: 0px;
 
-    .but{
+    .but {
         display: flex;
         align-items: center;
         justify-content: center;
 
     }
 
-
-    
-
     &__button {
         background-color: darken($primary-color, 5%);
-        height: 60px;  
+        height: 60px;
         border: 0px;
         font-family: "Parisienne";
         font-size: 40px;
-
-
     }
-}  
+}
 
-
-
-
-@media screen and (min-width:768px){
+@media screen and (min-width:768px) {
     .aside {
 
         background-color: darken($primary-color, 5%);
-        width:35%;
+        width: 35%;
         border: 0px;
         height: 60px;
         display: flex;
         flex-direction: column;
-        
-    
+
+
         &__button {
             background-color: darken($primary-color, 5%);
-            height: 60px;  
+            height: 60px;
             border: 0px;
             font-family: "Parisienne";
             font-size: 40px;
-    
+
         }
-    }    
+    }
 }
-
-
