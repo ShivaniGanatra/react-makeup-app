@@ -36,15 +36,15 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
             </div>
             <div>
                 <Link to="/">
-                    <NavButtons label="Home Page" variant="primary" />
+                    <NavButtons label="Filter by type" variant="primary" />
                 </Link>
 
                 <Link to="/test">
-                    <NavButtons label="Featured Brands" variant="primary" />
+                    <NavButtons label="Filter by brand" variant="secondary" />
                 </Link>
 
                 <Link to="/test2">
-                    <NavButtons label="Featured Products" variant="secondary" />
+                    <NavButtons label="Featured Products" variant="primary" />
                 </Link>
             </div>
         </nav>

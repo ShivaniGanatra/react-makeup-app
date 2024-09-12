@@ -16,14 +16,12 @@
         font-family: Parisienne;
         border: 0px;
         width: 100%;
-
     }
 
-    .but {
+    &__buttons {
         display: flex;
         align-items: center;
         justify-content: center;
-
     }
 
     &__button {
@@ -39,12 +37,12 @@
     .aside {
 
         background-color: darken($primary-color, 5%);
-        width: 35%;
+        min-width: 275px;
+        width: 315px;
         border: 0px;
         height: 60px;
         display: flex;
         flex-direction: column;
-
 
         &__button {
             background-color: darken($primary-color, 5%);

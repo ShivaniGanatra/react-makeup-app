@@ -13,11 +13,11 @@
     font-family: Poppins;
 
     &__green {
-        background-color: lighten($senary-color, 4%);
+        background-image: linear-gradient(lighten($senary-color,3%),white,lighten($senary-color,3%));
     }
 
     &__purple {
-        background-color: lighten($septenary-color, 10%);
+        background-image: linear-gradient(lighten($septenary-color,7%),white,lighten($septenary-color,9%))
     }
 
     &__description{

@@ -5,10 +5,6 @@
     background-color: $quinary-color;
     width: 100%;
 
-    &__search {
-        padding: 20px 0px;
-    }
-
     &__heading {
         display: flex;
         align-items: center;
@@ -49,9 +45,9 @@
 @media screen and (min-width:768px) {
     .nav {
         color: $teriary-color;
-        height: 450px;
-        display: flex;
-        flex-direction: column;
+        height: 350px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 50px;
 
         &__search {
             display: flex;

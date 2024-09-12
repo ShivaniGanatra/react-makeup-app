@@ -1,39 +1,31 @@
 
 @import "./../../assets/styles/variables" ;
-
-
 .makeupFront {
-
     width: 90vw;
     height: 400px;
     border-radius: 10px 10PX 0PX 0PX;
     overflow: hidden;
     display: grid;
     grid-template-rows: 1fr 1fr 20px 70px;
-    
-
+ 
     &__image {
         max-width: 200px;
         display: flex;
         justify-content: center;
         align-items: center;
-        
-
     }
 
     &__image-center {
         display: flex;
         justify-content: center;
-
     }
 
     &__green {
         background-image: linear-gradient(white, lighten($senary-color,3%));
-
     }
 
     &__purple {
-        background-image: linear-gradient(white, lighten($septenary-color,8%))
+        background-image: linear-gradient(white, lighten($septenary-color,9%))
     }
 
     &__name {
@@ -47,17 +39,15 @@
         font-family: Quicksand;
         display: flex;
         justify-content: center;
-
     }
 
 }
 @media screen and (min-width:768px){
     .makeupFront {
-
         width: 275px;
         height: 400px;
         border-radius: 10px 10PX 0PX 0PX;
         overflow: hidden;
         display: grid;
         grid-template-rows: 1fr 1fr 20px 70px;}
-}
+    }

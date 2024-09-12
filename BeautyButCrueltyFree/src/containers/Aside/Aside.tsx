@@ -8,7 +8,7 @@ interface AsideProps {
 const Aside: React.FC<AsideProps> = ({ getTypeOfProduct }) => {
     return (
         <aside className="aside">
-            <div className="but">
+            <div className="aside__buttons">
                 <button
                     onClick={() => getTypeOfProduct("")}
                     className="aside__button"

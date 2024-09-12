@@ -4,7 +4,7 @@ import MakeupCardBack from "./../MakeupBack/MakeupBack";
 import ReactCardFlip from "react-card-flip";
 import "./MakeupProduct.scss";
 
-interface MakeupCardProps {
+interface MakeupProductProps {
     id: number;
     name: string;
     image_link: string;
@@ -18,7 +18,7 @@ interface MakeupCardProps {
     }[];
 }
 
-const MakeupCard: React.FC<MakeupCardProps> = ({
+const MakeupProduct: React.FC<MakeupProductProps> = ({
     id,
     name,
     image_link,
@@ -74,4 +74,4 @@ const MakeupCard: React.FC<MakeupCardProps> = ({
     );
 };
 
-export default MakeupCard;
+export default MakeupProduct;

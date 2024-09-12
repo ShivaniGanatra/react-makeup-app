@@ -41,9 +41,10 @@
     }
 }
 
-.back_button {
+.back__button {
     background-color: $quinary-color;
-
+    background-color: $quinary-color;
+    width: 90vw;
     padding: 10px;
     border-radius: 0px 0PX 10PX 10PX;
     border: 0px;
@@ -54,7 +55,30 @@
 
     &--purple {
         background-color: lighten($septenary-color,7%);
-    } 
+    }    background-color: $quinary-color;
+    width: 90vw;
+    padding: 10px;
+    border-radius: 0px 0PX 10PX 10PX;
+    border: 0px;
+
+    &--green {
+        background-color: $senary-color;
+    }
+
+    &--purple {
+        background-color: lighten($septenary-color,7%);
+    }
+    padding: 10px;
+    border-radius: 0px 0PX 10PX 10PX;
+    border: 0px;
+
+    &--green {
+        background-color: $senary-color;
+    }
+
+    &--purple {
+        background-color: lighten($septenary-color,7%);
+    }
 }
 
 

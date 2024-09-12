@@ -1,5 +1,5 @@
 import "./Dashboard.scss";
-import MakeupCard from "./../../components/MakeupProduct/MakeupProduct";
+import MakeupProduct from "./../../components/MakeupProduct/MakeupProduct";
 
 interface Shade {
     hex_value: string;
@@ -28,33 +28,35 @@ const Dashboard = ({
 DashboardProps) => {
     return (
         <div className="dashboard">
-            {veganMakeupData.map((veganMakeup) => (
-                <MakeupCard
-                    key={veganMakeup.id}
-                    id={veganMakeup.id}
-                    name={veganMakeup.name}
-                    image_link={veganMakeup.image_link}
-                    description={veganMakeup.description}
-                    brand={veganMakeup.brand}
-                    variant="green"
-                    product_type={veganMakeup.product_type}
-                    product_colors={veganMakeup.product_colors}
-                />
-            ))}
+            <span className="dashboard__content">
+                {veganMakeupData.map((veganMakeup) => (
+                    <MakeupProduct
+                        key={veganMakeup.id}
+                        id={veganMakeup.id}
+                        name={veganMakeup.name}
+                        image_link={veganMakeup.image_link}
+                        description={veganMakeup.description}
+                        brand={veganMakeup.brand}
+                        variant="green"
+                        product_type={veganMakeup.product_type}
+                        product_colors={veganMakeup.product_colors}
+                    />
+                ))}
 
-            {crueltyFreeMakeupData.map((crueltyFreeMakeup) => (
-                <MakeupCard
-                    key={crueltyFreeMakeup.id}
-                    id={crueltyFreeMakeup.id}
-                    name={crueltyFreeMakeup.name}
-                    image_link={crueltyFreeMakeup.image_link}
-                    description={crueltyFreeMakeup.description}
-                    brand={crueltyFreeMakeup.brand}
-                    variant="purple"
-                    product_type={crueltyFreeMakeup.product_type}
-                    product_colors={crueltyFreeMakeup.product_colors}
-                />
-            ))}
+                {crueltyFreeMakeupData.map((crueltyFreeMakeup) => (
+                    <MakeupProduct
+                        key={crueltyFreeMakeup.id}
+                        id={crueltyFreeMakeup.id}
+                        name={crueltyFreeMakeup.name}
+                        image_link={crueltyFreeMakeup.image_link}
+                        description={crueltyFreeMakeup.description}
+                        brand={crueltyFreeMakeup.brand}
+                        variant="purple"
+                        product_type={crueltyFreeMakeup.product_type}
+                        product_colors={crueltyFreeMakeup.product_colors}
+                    />
+                ))}
+            </span>
         </div>
     );
 };
