@@ -43,19 +43,19 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
 
 
     //if someone surrounding div
-    const addIdIfHeartIsTrue = (id:number):void => {
-        if(fillHeart === false){
-            addElement(`${id}`,false) 
-        } else {
-            addElement(`ignore`,false)
-        }
-    }
+    // const addIdIfHeartIsTrue = (id:number):void => {
+    //     if(fillHeart === false){
+    //         addElement(`${id}`,false) 
+    //     } else {
+    //         addElement(`ignore`,false)
+    //     }
+    // }
 
 
     return (
         <div className={`makeupBack makeupBack__${variant}`}>
             <div 
-              onClick={()=>addIdIfHeartIsTrue(id)}
+              onClick={()=>addElement(`${id}`,fillHeart)}
                 
                 className="makeupBack__svg"
             >

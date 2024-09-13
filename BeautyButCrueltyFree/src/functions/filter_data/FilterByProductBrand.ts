@@ -16,5 +16,16 @@ export const filteredByProductBrand =(productData: Product[],productBrand: strin
     return filteredProductByTypeData;
 };
 
+export const justBrands = (productData: Product[]) => {
+    const noRepeatedBrands: string[] = [];
+    const onlyBrandsArray = productData.map((product) => product.brand);
+    onlyBrandsArray.forEach((brand) => {
+        if (!noRepeatedBrands.includes(brand) && brand) {
+            noRepeatedBrands.push(brand);
+        }
+    });
+    return noRepeatedBrands;
+};
+
 
 

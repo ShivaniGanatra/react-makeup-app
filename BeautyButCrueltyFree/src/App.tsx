@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import filteredProductByType from "./functions/filter_data/FilterByProductType";
 import cleanedProductsData from "./functions/clean_data/clean_data";
-import { filteredByProductBrand } from "./functions/filter_data/FilterByProductBrand";
-import Product from "./types & interfaces/Product";
+import { filteredByProductBrand,justBrands } from "./functions/filter_data/FilterByProductBrand";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -34,13 +33,15 @@ const App: React.FC = () => {
             .catch((err) => console.log(err));
     };
 
+    //filtered data
     const cleanedVeganData = cleanedProductsData(veganMakeupData);
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
-
     const cleanedSearchVeganData = cleanedProductsData(veganMakeupData);
-    const cleanedCrueltySearchFreeData = cleanedProductsData(
-        crueltyFreeMakeupData
-    );
+    const cleanedCrueltySearchFreeData = cleanedProductsData(crueltyFreeMakeupData);
+
+    //brands for demonstractive pruposes
+    const veganBrands = justBrands(cleanedSearchVeganData);
+    const crueltyFreeBrands = justBrands(cleanedCrueltySearchFreeData);
 
     const [productType, setProductType] = useState("");
 
@@ -63,37 +64,20 @@ const App: React.FC = () => {
     const [stateArray, setStateArray] = useState([""])
 
     const addElement = (id:string, heartStatus:boolean):void => {
-        setStateArray([...stateArray,id])
-  
+        if(heartStatus===false){
+            setStateArray([...stateArray,id])
+        }
+        else setStateArray([...stateArray].filter((arr)=> !(arr.includes(id))))
+        console.log(stateArray.join(","))
     }
-
-
-    console.log(cleanedCrueltySearchFreeData);
-    console.log(cleanedSearchVeganData);
-
-    console.log(filteredByProductBrand(cleanedCrueltySearchFreeData, "deciem"));
-    console.log(filteredByProductBrand(cleanedSearchVeganData, "colourpop"));
-
-    const justBrands = (productData: Product[]) => {
-        const noRepeatedBrands: string[] = [];
-        const onlyBrandsArray = productData.map((product) => product.brand);
-        onlyBrandsArray.forEach((brand) => {
-            if (!noRepeatedBrands.includes(brand) && brand) {
-                noRepeatedBrands.push(brand);
-            }
-        });
-        return noRepeatedBrands;
-    };
 
     useEffect(() => {
         getVeganMakeupData();
         getCrueltyFreeMakeupData();
     }, []);
 
-    const veganBrands = justBrands(cleanedSearchVeganData);
-    console.log(veganBrands);
-    const crueltyFreeBrands = justBrands(cleanedCrueltySearchFreeData);
-    console.log(crueltyFreeBrands);
+   
+
 
     return (
         <BrowserRouter>
