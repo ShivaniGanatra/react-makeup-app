@@ -48,8 +48,9 @@ const Brands = ({
                         brand={veganMakeup.brand}
                         variant="green"
                         product_type={veganMakeup.product_type}
-                        product_colors={veganMakeup.product_colors}
-                    />
+                        product_colors={veganMakeup.product_colors} addElement={function (_id: string): void {
+                            throw new Error("Function not implemented.");
+                        } }                    />
                 ))}
 
                 {crueltyFreeSearchMakeupData.map((crueltyFreeMakeup) => (
@@ -62,8 +63,9 @@ const Brands = ({
                         brand={crueltyFreeMakeup.brand}
                         variant="purple"
                         product_type={crueltyFreeMakeup.product_type}
-                        product_colors={crueltyFreeMakeup.product_colors}
-                    />
+                        product_colors={crueltyFreeMakeup.product_colors} addElement={function (): void {
+                            throw new Error("Function not implemented.");
+                        } }                    />
                 ))}
             </section>
         </div>

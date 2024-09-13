@@ -7,7 +7,12 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import filteredProductByType from "./functions/filter_data/FilterByProductType";
 import cleanedProductsData from "./functions/clean_data/clean_data";
-import { filteredByProductBrand,justBrands } from "./functions/filter_data/FilterByProductBrand";
+import {
+    filteredByProductBrand,
+    justBrands,
+} from "./functions/filter_data/FilterByProductBrand";
+import { filteredByProductFavourites } from "./functions/filter_data/FilterByFavourites";
+import Favorites from "./containers/Favourites/Favorites";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -34,10 +39,18 @@ const App: React.FC = () => {
     };
 
     //filtered data
-    const cleanedVeganData = cleanedProductsData(veganMakeupData);
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
+
+    const cleanedCrueltySearchFreeData = cleanedProductsData(
+        crueltyFreeMakeupData
+    );
+    const cleanedFavouriteCrueltyFreeData = cleanedProductsData(
+        crueltyFreeMakeupData
+    );
+
+    const cleanedVeganData = cleanedProductsData(veganMakeupData);
     const cleanedSearchVeganData = cleanedProductsData(veganMakeupData);
-    const cleanedCrueltySearchFreeData = cleanedProductsData(crueltyFreeMakeupData);
+    const cleanedFavouriteVeganData = cleanedProductsData(veganMakeupData);
 
     //brands for demonstractive pruposes
     const veganBrands = justBrands(cleanedSearchVeganData);
@@ -55,29 +68,20 @@ const App: React.FC = () => {
         setSearchProductType(product);
     };
 
-    if (productType.includes(",")) {
-        const products = productType.split(",");
-        console.log(products);
-    }
+    const [stateArray, setStateArray] = useState([""]);
 
-
-    const [stateArray, setStateArray] = useState([""])
-
-    const addElement = (id:string, heartStatus:boolean):void => {
-        if(heartStatus===false){
-            setStateArray([...stateArray,id])
-        }
-        else setStateArray([...stateArray].filter((arr)=> !(arr.includes(id))))
-        console.log(stateArray.join(","))
-    }
+    const addElement = (id: string, heartStatus: boolean): void => {
+        if (heartStatus === false) {
+            setStateArray([...stateArray, id]);
+        } else
+            setStateArray([...stateArray].filter((arr) => !arr.includes(id)));
+        console.log(stateArray.join(","));
+    };
 
     useEffect(() => {
         getVeganMakeupData();
         getCrueltyFreeMakeupData();
     }, []);
-
-   
-
 
     return (
         <BrowserRouter>
@@ -88,13 +92,11 @@ const App: React.FC = () => {
                     path="/"
                     element={
                         <main className="main">
-                            <div>hello im main {stateArray }</div>
+                            <div>hello im main {stateArray}</div>
                             <Aside getTypeOfProduct={getTypeOfProduct} />
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <div>
                                     <Dashboard
-
-
                                         addElement={addElement}
                                         veganMakeupData={filteredProductByType(
                                             cleanedVeganData,
@@ -120,7 +122,7 @@ const App: React.FC = () => {
                                 <Brands
                                     veganBrands={veganBrands}
                                     crueltyFreeBrands={crueltyFreeBrands}
-                                    
+
                                     crueltyFreeSearchMakeupData={filteredByProductBrand(
                                         cleanedCrueltySearchFreeData,
                                         searchProductType
@@ -136,7 +138,21 @@ const App: React.FC = () => {
                         </div>
                     }
                 />
-                <Route path="/test2" element={<div>test2</div>} />
+                <Route
+                    path="/test2"
+                    element={
+                        <div>
+                            {cleanedCrueltyFreeData && cleanedVeganData ? (
+                                <Favorites 
+                                cleanedFavouriteCrueltyFreeData={cleanedFavouriteCrueltyFreeData}
+                                cleanedFavouriteVeganData={cleanedFavouriteVeganData}
+                                />
+                            ) : (
+                                <p>loading:</p>
+                            )}
+                        </div>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );

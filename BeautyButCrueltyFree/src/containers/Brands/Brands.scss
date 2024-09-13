@@ -1,39 +1,42 @@
 @import "./../../assets/styles/variables";
 
+.brand {
+    &__title {
+        font-size: 40px;
+        font-family: Parisienne;
+        text-align: center;
+        padding: 10px;
+    }
 
-.brand__title {
-    font-size: 40px;
-    font-family: Parisienne;
-    text-align: center;
-    padding: 10px;
+    &__vegan {
+        background-image: linear-gradient(white, lighten($senary-color, 3%));
+    }
+
+    &__cruelty-free {
+        background-image: linear-gradient(white, lighten($septenary-color, 8%));
+    }
+
+    &__names {
+        font-family: Quicksand;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    &__content {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
 }
 
-.brand__vegan{
-background-image: linear-gradient(white, lighten($senary-color,3%));
-}
-
-.brand__cruelty-free{
-background-image: linear-gradient(white, lighten($septenary-color,8%));
-}
-
-.brand__names {
-    font-family: Quicksand;
-    font-size: 18px;
-    text-align: center;
-}
-
-.brand__content {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
 
 
 
-@media screen and (min-width:768px){
-    .brand__content{
+@media screen and (min-width:768px) {
+    .brand__content {
         padding: 20px;
         margin: 0px;
         height: auto;
