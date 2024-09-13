@@ -22,11 +22,11 @@
     }
 
     &__green {
-        background-image: linear-gradient(white, lighten($senary-color, 3%));
+        background-image: linear-gradient(white,white, lighten($senary-color, 3%));
     }
 
     &__purple {
-        background-image: linear-gradient(white, lighten($septenary-color, 9%))
+        background-image: linear-gradient(white,lighten($septenary-color, 9%))
     }
 
     &__name {
@@ -34,6 +34,8 @@
         font-size: 25px;
         display: flex;
         justify-content: center;
+        text-align: center;
+        align-items: flex-end;
     }
 
     &__brand {
