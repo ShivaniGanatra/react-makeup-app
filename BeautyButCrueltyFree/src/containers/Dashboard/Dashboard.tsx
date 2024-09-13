@@ -1,36 +1,24 @@
 import "./Dashboard.scss";
 import MakeupProduct from "./../../components/MakeupProduct/MakeupProduct";
-
-interface Shade {
-    hex_value: string;
-    colour_name: string;
-}
-
-interface MakeupProps {
-    id: number;
-    image_link: string;
-    name: string;
-    description: string;
-    brand: string;
-    product_type: string;
-    product_colors: Shade[];
-}
+import Product from "../../types & interfaces/Product";
 
 type DashboardProps = {
-    veganMakeupData: MakeupProps[];
-    crueltyFreeMakeupData: MakeupProps[];
+    veganMakeupData: Product[];
+    crueltyFreeMakeupData: Product[];
+    addElement(id: string,heartStatus:boolean): void;
 };
 
 const Dashboard = ({
     veganMakeupData,
     crueltyFreeMakeupData,
-}: 
-DashboardProps) => {
+    addElement,
+}: DashboardProps) => {
     return (
         <div className="dashboard">
             <span className="dashboard__content">
                 {veganMakeupData.map((veganMakeup) => (
                     <MakeupProduct
+                        addElement={addElement}
                         key={veganMakeup.id}
                         id={veganMakeup.id}
                         name={veganMakeup.name}
@@ -45,6 +33,7 @@ DashboardProps) => {
 
                 {crueltyFreeMakeupData.map((crueltyFreeMakeup) => (
                     <MakeupProduct
+                    addElement={addElement}
                         key={crueltyFreeMakeup.id}
                         id={crueltyFreeMakeup.id}
                         name={crueltyFreeMakeup.name}

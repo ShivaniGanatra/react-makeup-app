@@ -5,6 +5,7 @@ import ReactCardFlip from "react-card-flip";
 import "./MakeupProduct.scss";
 
 interface MakeupProductProps {
+    addElement(id: string,heartStatus:boolean): void;
     id: number;
     name: string;
     image_link: string;
@@ -27,6 +28,7 @@ const MakeupProduct: React.FC<MakeupProductProps> = ({
     variant,
     product_type,
     product_colors,
+    addElement
 }) => {
     //make card flip
     //resource = "https://www.geeksforgeeks.org/design-a-flip-card-effect-using-reactjs/"
@@ -62,6 +64,7 @@ const MakeupProduct: React.FC<MakeupProductProps> = ({
 
             <div className="back">
                 <MakeupCardBack
+                    addElement={addElement}
                     id={id}
                     description={description}
                     variant={variant}

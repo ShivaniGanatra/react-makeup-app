@@ -1,33 +1,71 @@
 import "./MakeupBack.scss";
-import heart from "./../../assets/images/heart-svgrepo-com.svg";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 
 interface MakeupCardBackProps {
     id: number;
     description: string;
     variant: string;
+    addElement(id: string,heartStatus:boolean): void;
 }
 
 const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
     description,
     variant,
+    id,
+    addElement
 }) => {
+
+
+
+
+
+
     const [fillHeart, setFillHeart] = useState(false);
-    const handleHeartClick = () => {
+
+    const handleHeartClick = (): void => {
         setFillHeart(!fillHeart);
+
     };
-    
+
+    // const retrieveIdfUNCTION = (ida: string): void => {
+    //     if(fillHeart == true){
+    //     setRetrievedId(ida);
+    //     favouritedCards.push(retrieveId);
+    //     console.log(favouritedCards);}
+    // };
+
+
+    // const pushIdToFavouriteCards = () => {
+    //     favouritedCards.push(retrieveId)
+    //     console.log(favouritedCards)
+    // };
+
 
 
     //if someone surrounding div
+    const addIdIfHeartIsTrue = (id:number):void => {
+        if(fillHeart === false){
+            addElement(`${id}`,false) 
+        } else {
+            addElement(`ignore`,false)
+        }
+    }
+
 
     return (
         <div className={`makeupBack makeupBack__${variant}`}>
-            <div className="makeupBack__svg">
+            <div 
+              onClick={()=>addIdIfHeartIsTrue(id)}
+                
+                className="makeupBack__svg"
+            >
                 <svg
                     onClick={handleHeartClick}
-                    className={fillHeart ? "makeupBack__svg-filled" : "makeupBack__svg-empty"}
-                    
+                    className={
+                        fillHeart
+                            ? "makeupBack__svg-filled"
+                            : "makeupBack__svg-empty"
+                    }
                     xmlns="http://www.w3.org/2000/svg"
                     height="75px"
                     width="100px"

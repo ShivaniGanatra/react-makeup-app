@@ -59,6 +59,15 @@ const App: React.FC = () => {
         console.log(products);
     }
 
+
+    const [stateArray, setStateArray] = useState([""])
+
+    const addElement = (id:string, heartStatus:boolean):void => {
+        setStateArray([...stateArray,id])
+  
+    }
+
+
     console.log(cleanedCrueltySearchFreeData);
     console.log(cleanedSearchVeganData);
 
@@ -95,10 +104,14 @@ const App: React.FC = () => {
                     path="/"
                     element={
                         <main className="main">
+                            <div>hello im main {stateArray }</div>
                             <Aside getTypeOfProduct={getTypeOfProduct} />
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <div>
                                     <Dashboard
+
+
+                                        addElement={addElement}
                                         veganMakeupData={filteredProductByType(
                                             cleanedVeganData,
                                             productType
