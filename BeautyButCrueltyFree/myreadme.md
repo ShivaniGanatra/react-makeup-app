@@ -7,6 +7,9 @@ default images for lipsticks
 implement carousel somehow
 map over shades and make circle for a shade if theres time
 
+
+
+
 // interface exampleObject {
 //     name: string;
 // }
@@ -56,3 +59,6 @@ map over shades and make circle for a shade if theres time
 
     //Inline styling on whatever HTML element we are using to display the shade for this section.
     // To render all the shades we will have to map through the array of object and render a Single Shade  component for each shade
+
+        // created a card flip component using this resource and importing a package see resource
+    //  https://blog.openreplay.com/creating-animated-flip-cards-in-react/

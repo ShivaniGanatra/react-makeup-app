@@ -8,6 +8,7 @@ interface Product {
     brand: string;
     product_type: string;
     product_colors: Shade[];
+    tag_list:string[]
 }
 
 export default Product

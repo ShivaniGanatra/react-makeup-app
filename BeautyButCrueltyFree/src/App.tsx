@@ -6,7 +6,7 @@ import Brands from "./containers/Brands/Brands";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import filteredProductByType from "./functions/filter_data/FilterByProductType";
-import cleanedProductsData from "./functions/clean_data/clean_data";
+import {cleanedProductsData,cleanedVeganDataremovedCrueltyfFree} from "./functions/clean_data/clean_data";
 import {
     filteredByProductBrand,
     justBrands,
@@ -40,18 +40,19 @@ const App: React.FC = () => {
     };
 
     //filtered data
+
+
+
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
+    const cleanedCrueltySearchFreeData = cleanedCrueltyFreeData
+    const cleanedFavouriteCrueltyFreeData = cleanedCrueltyFreeData
 
-    const cleanedCrueltySearchFreeData = cleanedProductsData(
-        crueltyFreeMakeupData
-    );
-    const cleanedFavouriteCrueltyFreeData = cleanedProductsData(
-        crueltyFreeMakeupData
-    );
+    
+    const onlyCleanedVeganData = cleanedProductsData(veganMakeupData)
 
-    const cleanedVeganData = cleanedProductsData(veganMakeupData);
-    const cleanedSearchVeganData = cleanedProductsData(veganMakeupData);
-    const cleanedFavouriteVeganData = cleanedProductsData(veganMakeupData);
+    const cleanedVeganData = cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
+    const cleanedSearchVeganData = cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
+    const cleanedFavouriteVeganData = cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData)
 
     //brands for demonstractive pruposes
     const veganBrands = justBrands(cleanedSearchVeganData);
@@ -83,6 +84,8 @@ const App: React.FC = () => {
         getVeganMakeupData();
         getCrueltyFreeMakeupData();
     }, []);
+
+
 
 
     return (
