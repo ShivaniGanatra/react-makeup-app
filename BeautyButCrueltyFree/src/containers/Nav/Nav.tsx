@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import mailIcon from "./../../assets/images/email-1-svgrepo-com.svg";
 import Key from "./../../assets/images/key.svg";
+import Keys from "../../components/Keys/Keys";
 
 interface NavProps {
     getTypeOfProductInSearch(product: string): void;
@@ -31,7 +32,6 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
         const Name = event.currentTarget.Name.value;
         const email = event.currentTarget.email.value;
 
-
         if (Name && email) {
             event.currentTarget.reset();
             setUser({ Name, email });
@@ -57,12 +57,13 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
                     <div className="pop-up">
                         <p onClick={toggleNav}>x</p>
                         <h3 className="pop-up__title">{`Hey ${user.Name}`}</h3>
-                        <form
-                            onSubmit={onSubmit}
-                            className="pop-up__form"
-                        >
+                        <form onSubmit={onSubmit} className="pop-up__form">
                             <div className="pop-up__section">
-                                <p>To get insight into latest cruelty free offers and suscribe to marketing emials please enter your name and email </p>
+                                <p>
+                                    To get insight into latest cruelty free
+                                    offers and suscribe to marketing emials
+                                    please enter your name and email{" "}
+                                </p>
                                 <label htmlFor="Name">name</label>
                                 <input
                                     type="text"
@@ -79,29 +80,13 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
                                 />
                             </div>
 
-
                             <button className="pop-up__button">Save</button>
                         </form>
                     </div>
                 )}
             </div>
 
-            <div className="key">
-                {showKeys && (
-                    <div className="key__content" onClick={toggleKeys}>
-                        <div className="key__item">
-                            <div className="key__shade key__shade--vegan"></div>
-                            <div className="key__name "> : Vegan</div>
-                        </div>
-                        <div className="key__item">
-                            <div className="key__shade key__shade--vegan-crueltyfree"></div>
-                            <div className="key__name">
-                                : Vegan & Cruelty Free
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
+            <div className="key">{showKeys && <Keys toggleKeys={toggleKeys}/>}</div>
 
             <div>
                 <Link to="/">
