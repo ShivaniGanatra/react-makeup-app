@@ -11,8 +11,9 @@ import {
     filteredByProductBrand,
     justBrands,
 } from "./functions/filter_data/FilterByProductBrand";
-import { filteredByProductFavourites } from "./functions/filter_data/FilterByFavourites";
 import Favorites from "./containers/Favourites/Favorites";
+
+import { filteredByProductFavourites } from "./functions/filter_data/FilterByFavourites";
 
 const App: React.FC = () => {
     const [veganMakeupData, setVeganMakeupData] = useState<object[]>([]);
@@ -83,6 +84,7 @@ const App: React.FC = () => {
         getCrueltyFreeMakeupData();
     }, []);
 
+
     return (
         <BrowserRouter>
             <Nav getTypeOfProductInSearch={getTypeOfProductInSearch} />
@@ -144,8 +146,8 @@ const App: React.FC = () => {
                         <div>
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <Favorites 
-                                cleanedFavouriteCrueltyFreeData={cleanedFavouriteCrueltyFreeData}
-                                cleanedFavouriteVeganData={cleanedFavouriteVeganData}
+                                cleanedFavouriteCrueltyFreeData={filteredByProductFavourites(cleanedFavouriteCrueltyFreeData,stateArray)}
+                                cleanedFavouriteVeganData={filteredByProductFavourites(cleanedFavouriteVeganData,stateArray)}
                                 />
                             ) : (
                                 <p>loading:</p>

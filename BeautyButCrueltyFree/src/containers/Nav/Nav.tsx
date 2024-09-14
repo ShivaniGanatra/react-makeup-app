@@ -4,6 +4,7 @@ import NavButtons from "./../../components/NavButtons/NavButtons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import mailIcon from "./../../assets/images/email-1-svgrepo-com.svg"
+import Heart from "./../../assets/images/heart-svgrepo-com.svg"
 
 interface NavProps {
     getTypeOfProductInSearch(product: string): void;
@@ -45,7 +46,7 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
                 </Link>
 
                 <Link to="/test2">
-                    <NavButtons label="Favourited" variant="primary" />
+                    <NavButtons label="Favourites" variant="primary" />
                 </Link>
             </div>
         </nav>
