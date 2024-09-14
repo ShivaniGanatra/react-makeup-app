@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import mailIcon from "./../../assets/images/email-1-svgrepo-com.svg";
 import Key from "./../../assets/images/key.svg";
 import Keys from "../../components/Keys/Keys";
+import PopUp from "../../components/PopUp/PopUp";
 
 interface NavProps {
     getTypeOfProductInSearch(product: string): void;
 }
 const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
     const [showNav, setShowNav] = useState(false);
+    
     const toggleNav = () => {
         setShowNav(!showNav);
     };
@@ -54,35 +56,7 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
             <h1 className="nav__heading">Beauty but cruelty free</h1>
             <div className="nav-center">
                 {showNav && (
-                    <div className="pop-up">
-                        <p onClick={toggleNav}>x</p>
-                        <h3 className="pop-up__title">{`Hey ${user.Name}`}</h3>
-                        <form onSubmit={onSubmit} className="pop-up__form">
-                            <div className="pop-up__section">
-                                <p>
-                                    To get insight into latest cruelty free
-                                    offers and suscribe to marketing emials
-                                    please enter your name and email{" "}
-                                </p>
-                                <label htmlFor="Name">name</label>
-                                <input
-                                    type="text"
-                                    name="Name"
-                                    className="pop-up__input"
-                                />
-                            </div>
-                            <div className="pop-up__section">
-                                <label htmlFor="email">email</label>
-                                <input
-                                    type="text"
-                                    name="email"
-                                    className="pop-up__input"
-                                />
-                            </div>
-
-                            <button className="pop-up__button">Save</button>
-                        </form>
-                    </div>
+                    <PopUp toggleNav= {toggleNav} user={user} onSubmit ={onSubmit}/>
                 )}
             </div>
 
