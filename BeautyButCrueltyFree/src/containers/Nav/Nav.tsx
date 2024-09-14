@@ -3,8 +3,8 @@ import Search from "./../../components/Search/Search";
 import NavButtons from "./../../components/NavButtons/NavButtons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import mailIcon from "./../../assets/images/email-1-svgrepo-com.svg"
-import Heart from "./../../assets/images/heart-svgrepo-com.svg"
+import mailIcon from "./../../assets/images/email-1-svgrepo-com.svg";
+import Key from "./../../assets/images/key.svg";
 
 interface NavProps {
     getTypeOfProductInSearch(product: string): void;
@@ -15,16 +15,24 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
         setShowNav(!showNav);
     };
 
+    const [showKeys, setShowKeys] = useState(false);
+    const toggleKeys = () => {
+        setShowKeys(!showKeys);
+    };
+
     return (
         <nav className="nav">
-            <div className="nav__search">
-
-                <button className="nav__button" onClick={toggleNav} >
-                    <img className="nav__mail-icon" src={mailIcon} alt="" />
+            <div className="nav__icons">
+                <button className="nav__button" onClick={toggleKeys}>
+                    <img className="nav__icon" src={Key} alt="key icon" />
                 </button>
-
-                <Search getTypeOfProductInSearch={getTypeOfProductInSearch} />
+                <button className="nav__button" onClick={toggleNav}>
+                    <img className="nav__icon" src={mailIcon} alt="mail icon" />
+                </button>
             </div>
+
+            <Search getTypeOfProductInSearch={getTypeOfProductInSearch} />
+
             <h1 className="nav__heading">Beauty but cruelty free</h1>
             <div className="nav-center">
                 {showNav && (
@@ -36,6 +44,24 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
                     </div>
                 )}
             </div>
+
+            <div className="key">
+                {showKeys && (
+                    <div className="key__content" onClick={toggleKeys}>
+                        <div className="key__item">
+                            <div className="key__shade key__shade--vegan"></div>
+                            <div className="key__name "> : Vegan</div>
+                        </div>
+                        <div className="key__item">
+                            <div className="key__shade key__shade--vegan-crueltyfree"></div>
+                            <div className="key__name">
+                                : Vegan & Cruelty Free
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+
             <div>
                 <Link to="/">
                     <NavButtons label="Filter by type" variant="primary" />

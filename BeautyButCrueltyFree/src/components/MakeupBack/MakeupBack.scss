@@ -38,19 +38,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &--empty {
+
+            fill: transparent;
+            stroke: $nonary-color;
+            stroke-width: 50px;
+        }
+    
+        &--filled {
+            fill:$nonary-color
+        }
         
     }
 
-    .makeupBack__svg-empty {
 
-        fill: transparent;
-        stroke: $octinary-color;
-        stroke-width: 50px;
-    }
-
-    .makeupBack__svg-filled {
-        fill:$octinary-color
-    }
 
 
 

@@ -21,14 +21,66 @@
         height: 100px;
     }
 
-    &__mail-icon {
+    &__icons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__icon {
         width: 60px;
+        margin: 0px 30px;
     }
 
     &__button {
         background-color: transparent;
         border: none;
         padding: 10px;
+    }
+}
+
+@import "./../../assets/styles/variables";
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        width: 300px;
+        display: flex;
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        background-image: linear-gradient(white, lighten($octinary-color, 3%));
+        justify-content: center;
+        height: 250px;
+        border-radius: 20px;
+        font-family: Quicksand;
+        text-align: center;
+        position: absolute;
+        z-index: 2;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 7px;
+        gap: 10px;
+    }
+
+    &__shade {
+        width: 30px;
+        height: 30px;
+        background-color: $senary-color;
+
+        &--vegan-crueltyfree {
+            background-color: lighten($septenary-color, 7%);
+        }
+
+        &--vegan {
+            background-color: $senary-color;
+        }
     }
 }
 
@@ -57,7 +109,7 @@
 @media screen and (min-width:768px) {
     .nav {
         color: $teriary-color;
-        height: 350px;
+        height: 500px;
         display: grid;
         grid-template-rows: 1fr 1fr 1fr 50px;
 

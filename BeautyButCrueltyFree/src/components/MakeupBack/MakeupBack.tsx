@@ -27,31 +27,6 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
 
     };
 
-    // const retrieveIdfUNCTION = (ida: string): void => {
-    //     if(fillHeart == true){
-    //     setRetrievedId(ida);
-    //     favouritedCards.push(retrieveId);
-    //     console.log(favouritedCards);}
-    // };
-
-
-    // const pushIdToFavouriteCards = () => {
-    //     favouritedCards.push(retrieveId)
-    //     console.log(favouritedCards)
-    // };
-
-
-
-    //if someone surrounding div
-    // const addIdIfHeartIsTrue = (id:number):void => {
-    //     if(fillHeart === false){
-    //         addElement(`${id}`,false) 
-    //     } else {
-    //         addElement(`ignore`,false)
-    //     }
-    // }
-
-
     return (
         <div className={`makeupBack makeupBack__${variant}`}>
             <div 
@@ -63,8 +38,8 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
                     onClick={handleHeartClick}
                     className={
                         fillHeart
-                            ? "makeupBack__svg-filled"
-                            : "makeupBack__svg-empty"
+                            ? "makeupBack__svg--filled"
+                            : "makeupBack__svg--empty"
                     }
                     xmlns="http://www.w3.org/2000/svg"
                     height="75px"

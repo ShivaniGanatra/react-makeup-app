@@ -13,6 +13,8 @@ const Favorites = ({
 }: FavouriteProps) => {
     return (
         <div>
+
+
             <span className="dashboard__content">
                 {cleanedFavouriteVeganData.map((veganMakeup) => (
                     <MakeupProduct

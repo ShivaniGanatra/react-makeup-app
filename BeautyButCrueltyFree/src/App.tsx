@@ -85,7 +85,7 @@ const App: React.FC = () => {
         getCrueltyFreeMakeupData();
     }, []);
 
-
+console.log(cleanedCrueltyFreeData)
 
 
     return (
