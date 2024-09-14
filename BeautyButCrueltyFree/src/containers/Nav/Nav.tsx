@@ -1,7 +1,7 @@
 import "./Nav.scss";
 import Search from "./../../components/Search/Search";
 import NavButtons from "./../../components/NavButtons/NavButtons";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import mailIcon from "./../../assets/images/email-1-svgrepo-com.svg";
 import Key from "./../../assets/images/key.svg";
@@ -20,6 +20,24 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
         setShowKeys(!showKeys);
     };
 
+    const [user, setUser] = useState({
+        Name: "Gorgeous Girlie!",
+        email: "",
+    });
+
+    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const Name = event.currentTarget.Name.value;
+        const email = event.currentTarget.email.value;
+
+
+        if (Name && email) {
+            event.currentTarget.reset();
+            setUser({ Name, email });
+        }
+    };
+
     return (
         <nav className="nav">
             <div className="nav__icons">
@@ -36,11 +54,34 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
             <h1 className="nav__heading">Beauty but cruelty free</h1>
             <div className="nav-center">
                 {showNav && (
-                    <div className="pop-up" onClick={toggleNav}>
-                        <p>Hey Gorgeous</p>
-                        <p>input form element</p>
+                    <div className="pop-up">
+                        <p onClick={toggleNav}>x</p>
+                        <h3 className="pop-up__title">{`Hey ${user.Name}`}</h3>
+                        <form
+                            onSubmit={onSubmit}
+                            className="pop-up__form"
+                        >
+                            <div className="pop-up__section">
+                                <p>To get insight into latest cruelty free offers and suscribe to marketing emials please enter your name and email </p>
+                                <label htmlFor="Name">name</label>
+                                <input
+                                    type="text"
+                                    name="Name"
+                                    className="pop-up__input"
+                                />
+                            </div>
+                            <div className="pop-up__section">
+                                <label htmlFor="email">email</label>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    className="pop-up__input"
+                                />
+                            </div>
 
-                        <p>To get emails of marketing offers please sign up</p>
+
+                            <button className="pop-up__button">Save</button>
+                        </form>
                     </div>
                 )}
             </div>

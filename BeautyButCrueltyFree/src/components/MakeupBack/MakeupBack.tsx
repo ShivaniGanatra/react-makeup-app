@@ -15,13 +15,26 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
     addElement
 }) => {
 
+
     const [fillHeart, setFillHeart] = useState(false);
+
+
+    // const handleHeartClick = (): void => {
+    //     setFillHeart(!fillHeart);
+    // };
+
+    // const handleHeartClick = useMemo(() => {
+    //     return () => {
+    //         setFillHeart(!fillHeart)
+    //     }
+    // },[!fillHeart])
 
 
     const handleHeartClick = (): void => {
         setFillHeart(!fillHeart);
-
     };
+
+ 
 
     return (
         <div className={`makeupBack makeupBack__${variant}`}>
