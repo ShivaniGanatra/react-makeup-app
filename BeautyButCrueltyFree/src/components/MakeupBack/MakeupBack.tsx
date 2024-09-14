@@ -1,5 +1,5 @@
 import "./MakeupBack.scss";
-import React, {  useState } from "react";
+import React, {  useState, useMemo } from "react";
 
 interface MakeupCardBackProps {
     id: number;
@@ -15,12 +15,8 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
     addElement
 }) => {
 
-
-
-
-
-
     const [fillHeart, setFillHeart] = useState(false);
+
 
     const handleHeartClick = (): void => {
         setFillHeart(!fillHeart);
@@ -56,7 +52,9 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
                     />
                 </svg>
             </div>
-            <p className="makeupBack__description">{description}</p>
+            <div className="makeupBack__description">
+                <p className="makeupBack__description-text">{description}</p>
+            </div>
         </div>
     );
 };

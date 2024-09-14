@@ -44,8 +44,8 @@ const MakeupProduct: React.FC<MakeupProductProps> = ({
         <ReactCardFlip
             isFlipped={isFlipped}
             flipDirection="vertical"
-            flipSpeedBackToFront={2}
-            flipSpeedFrontToBack={2}
+            flipSpeedBackToFront={1.5}
+            flipSpeedFrontToBack={1.5}
         >
             <div className="front">
                 <MakeupCardFront

@@ -11,13 +11,13 @@ const Aside: React.FC<AsideProps> = ({ getTypeOfProduct }) => {
             <div className="aside__buttons">
                 <button
                     onClick={() => getTypeOfProduct("")}
-                    className="aside__button"
+                    className="aside__title"
                 >
                     All Products
                 </button>
             </div>
-            <h1 className="aside__title">Vegan</h1>
-            <h1 className="aside__title">Cruelty free</h1>
+            <h1 onClick={() => getTypeOfProduct('Vegan')} className="aside__sub-title">Vegan</h1>
+            <h1 onClick={() => getTypeOfProduct('cruelty free')} className="aside__sub-title">Cruelty free & Vegan</h1>
             <ChecklistSection
                 getTypeOfProduct={getTypeOfProduct}
                 variant="Vegan"

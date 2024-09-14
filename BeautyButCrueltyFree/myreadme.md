@@ -8,7 +8,7 @@ implement carousel somehow
 map over shades and make circle for a shade if theres time
 
 
-
+//https://stackoverflow.com/questions/72410312/svg-outline-and-fill
 
 // interface exampleObject {
 //     name: string;

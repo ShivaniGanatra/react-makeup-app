@@ -1,6 +1,9 @@
 import Product from "../../types & interfaces/Product";
 
 const filteredProductByType = (productData: Product[], productType: string) => {
+
+
+
     if (productType === "lips") {
         const filteredProductByTypeData = productData.filter(
             (item) =>
@@ -26,6 +29,21 @@ const filteredProductByType = (productData: Product[], productType: string) => {
                 item.product_type.includes("foundation") ||
                 item.product_type.includes("blush") ||
                 item.product_type.includes("bronzer")
+        );
+        return filteredProductByTypeData;
+    }
+
+    if (productType === "cruelty free") {
+        const filteredProductByTypeData = productData.filter(
+            (item) =>
+                item.tag_list.includes("cruelty free")
+        );
+        return filteredProductByTypeData;
+    }
+    else if (productType === "Vegan") {
+        const filteredProductByTypeData = productData.filter(
+            (item) =>
+                !item.tag_list.includes("cruelty free")
         );
         return filteredProductByTypeData;
     }
