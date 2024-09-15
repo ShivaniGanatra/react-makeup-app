@@ -1,4 +1,4 @@
-
+import "./Keys.scss"
 
 interface KeyProps {
     toggleKeys: () => void

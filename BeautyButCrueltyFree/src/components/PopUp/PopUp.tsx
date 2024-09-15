@@ -1,4 +1,5 @@
 import { FormEventHandler } from "react";
+import "./PopUp.scss"
 
 interface PopUpProps {
     toggleNav: () => void
