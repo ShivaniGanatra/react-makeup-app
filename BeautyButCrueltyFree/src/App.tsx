@@ -6,7 +6,10 @@ import Brands from "./containers/Brands/Brands";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import filteredProductByType from "./functions/filter_data/FilterByProductType";
-import {cleanedProductsData,cleanedVeganDataremovedCrueltyfFree} from "./functions/clean_data/clean_data";
+import {
+    cleanedProductsData,
+    cleanedVeganDataremovedCrueltyfFree,
+} from "./functions/clean_data/clean_data";
 import {
     filteredByProductBrand,
     justBrands,
@@ -41,18 +44,18 @@ const App: React.FC = () => {
 
     //filtered data
 
-
-
     const cleanedCrueltyFreeData = cleanedProductsData(crueltyFreeMakeupData);
-    const cleanedCrueltySearchFreeData = cleanedCrueltyFreeData
-    const cleanedFavouriteCrueltyFreeData = cleanedCrueltyFreeData
+    const cleanedCrueltySearchFreeData = cleanedCrueltyFreeData;
+    const cleanedFavouriteCrueltyFreeData = cleanedCrueltyFreeData;
 
-    
-    const onlyCleanedVeganData = cleanedProductsData(veganMakeupData)
+    const onlyCleanedVeganData = cleanedProductsData(veganMakeupData);
 
-    const cleanedVeganData = cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
-    const cleanedSearchVeganData = cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
-    const cleanedFavouriteVeganData = cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData)
+    const cleanedVeganData =
+        cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
+    const cleanedSearchVeganData =
+        cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
+    const cleanedFavouriteVeganData =
+        cleanedVeganDataremovedCrueltyfFree(onlyCleanedVeganData);
 
     //brands for demonstractive pruposes
     const veganBrands = justBrands(cleanedSearchVeganData);
@@ -72,7 +75,7 @@ const App: React.FC = () => {
 
     const [stateArray, setStateArray] = useState([""]);
 
-    const addElement = (id: string, heartStatus: boolean): void => {
+    const addToFavourites = (id: string, heartStatus: boolean): void => {
         if (heartStatus === false) {
             setStateArray([...stateArray, id]);
         } else
@@ -85,8 +88,7 @@ const App: React.FC = () => {
         getCrueltyFreeMakeupData();
     }, []);
 
-console.log(cleanedCrueltyFreeData)
-
+    console.log(cleanedCrueltyFreeData);
 
     return (
         <BrowserRouter>
@@ -97,12 +99,11 @@ console.log(cleanedCrueltyFreeData)
                     path="/"
                     element={
                         <main className="main">
-                            <div>hello im main {stateArray}</div>
                             <Aside getTypeOfProduct={getTypeOfProduct} />
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <div>
                                     <Dashboard
-                                        addElement={addElement}
+                                        addToFavourites={addToFavourites}
                                         veganMakeupData={filteredProductByType(
                                             cleanedVeganData,
                                             productType
@@ -125,9 +126,9 @@ console.log(cleanedCrueltyFreeData)
                         <div>
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <Brands
+                                addToFavourites={addToFavourites}
                                     veganBrands={veganBrands}
                                     crueltyFreeBrands={crueltyFreeBrands}
-
                                     crueltyFreeSearchMakeupData={filteredByProductBrand(
                                         cleanedCrueltySearchFreeData,
                                         searchProductType
@@ -148,9 +149,16 @@ console.log(cleanedCrueltyFreeData)
                     element={
                         <div>
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
-                                <Favorites 
-                                cleanedFavouriteCrueltyFreeData={filteredByProductFavourites(cleanedFavouriteCrueltyFreeData,stateArray)}
-                                cleanedFavouriteVeganData={filteredByProductFavourites(cleanedFavouriteVeganData,stateArray)}
+                                <Favorites
+                                    cleanedFavouriteCrueltyFreeData={filteredByProductFavourites(
+                                        cleanedFavouriteCrueltyFreeData,
+                                        stateArray
+                                    )}
+                                    addToFavourites={addToFavourites}
+                                    cleanedFavouriteVeganData={filteredByProductFavourites(
+                                        cleanedFavouriteVeganData,
+                                        stateArray
+                                    )}
                                 />
                             ) : (
                                 <p>loading:</p>

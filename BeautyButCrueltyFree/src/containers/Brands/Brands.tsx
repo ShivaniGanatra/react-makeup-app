@@ -13,7 +13,9 @@ interface MakeupProps {
 }
 
 type BrandProps = {
+    
     veganSearchMakeupData: MakeupProps[];
+    addToFavourites(id: string, heartStatus: boolean): void;
     crueltyFreeSearchMakeupData: MakeupProps[];
     veganBrands: string[];
     crueltyFreeBrands: string[];
@@ -24,6 +26,7 @@ const Brands = ({
     veganSearchMakeupData,
     veganBrands,
     crueltyFreeBrands,
+    addToFavourites
 }: BrandProps) => {
     return (
         <div className="brand">
@@ -40,6 +43,7 @@ const Brands = ({
             <section className="brand__content">
                 {veganSearchMakeupData.map((veganMakeup) => (
                     <MakeupCard
+                    addToFavourites={addToFavourites}
                         key={veganMakeup.id}
                         id={veganMakeup.id}
                         name={veganMakeup.name}
@@ -48,13 +52,14 @@ const Brands = ({
                         brand={veganMakeup.brand}
                         variant="green"
                         product_type={veganMakeup.product_type}
-                        product_colors={veganMakeup.product_colors} addElement={function (_id: string): void {
-                            throw new Error("Function not implemented.");
-                        } }                    />
+                        product_colors={veganMakeup.product_colors}
+                        
+                    />
                 ))}
 
                 {crueltyFreeSearchMakeupData.map((crueltyFreeMakeup) => (
                     <MakeupCard
+                    addToFavourites={addToFavourites}
                         key={crueltyFreeMakeup.id}
                         id={crueltyFreeMakeup.id}
                         name={crueltyFreeMakeup.name}
@@ -63,9 +68,8 @@ const Brands = ({
                         brand={crueltyFreeMakeup.brand}
                         variant="purple"
                         product_type={crueltyFreeMakeup.product_type}
-                        product_colors={crueltyFreeMakeup.product_colors} addElement={function (): void {
-                            throw new Error("Function not implemented.");
-                        } }                    />
+                        product_colors={crueltyFreeMakeup.product_colors}
+                    />
                 ))}
             </section>
         </div>

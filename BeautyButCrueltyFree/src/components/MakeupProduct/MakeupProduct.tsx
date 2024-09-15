@@ -5,7 +5,7 @@ import ReactCardFlip from "react-card-flip";
 import "./MakeupProduct.scss";
 
 interface MakeupProductProps {
-    addElement(id: string,heartStatus:boolean): void;
+    addToFavourites(id: string, heartStatus: boolean): void;
     id: number;
     name: string;
     image_link: string;
@@ -13,6 +13,7 @@ interface MakeupProductProps {
     brand: string;
     variant: string;
     product_type: string;
+    addToFavourites(id: string, heartStatus: boolean): void;
     product_colors: {
         hex_value: string;
         colour_name: string;
@@ -28,7 +29,7 @@ const MakeupProduct: React.FC<MakeupProductProps> = ({
     variant,
     product_type,
     product_colors,
-    addElement
+    addToFavourites,
 }) => {
     //make card flip
     //resource = "https://www.geeksforgeeks.org/design-a-flip-card-effect-using-reactjs/"
@@ -57,19 +58,25 @@ const MakeupProduct: React.FC<MakeupProductProps> = ({
                     product_type={product_type}
                     product_colors={product_colors}
                 />
-                <button className={`front__button front__button--${variant}`} onClick={handleClick}>
+                <button
+                    className={`front__button front__button--${variant}`}
+                    onClick={handleClick}
+                >
                     ^
                 </button>
             </div>
 
             <div className="back">
                 <MakeupCardBack
-                    addElement={addElement}
+                    addToFavourites={addToFavourites}
                     id={id}
                     description={description}
                     variant={variant}
                 />
-                <button className={`back__button back__button--${variant}`} onClick={handleClick}>
+                <button
+                    className={`back__button back__button--${variant}`}
+                    onClick={handleClick}
+                >
                     ^
                 </button>
             </div>

@@ -5,20 +5,20 @@ import Product from "../../types & interfaces/Product";
 type DashboardProps = {
     veganMakeupData: Product[];
     crueltyFreeMakeupData: Product[];
-    addElement(id: string,heartStatus:boolean): void;
+    addToFavourites(id: string, heartStatus: boolean): void;
 };
 
 const Dashboard = ({
     veganMakeupData,
     crueltyFreeMakeupData,
-    addElement,
+    addToFavourites,
 }: DashboardProps) => {
     return (
         <div className="dashboard">
             <span className="dashboard__content">
                 {veganMakeupData.map((veganMakeup) => (
                     <MakeupProduct
-                        addElement={addElement}
+                        addToFavourites={addToFavourites}
                         key={veganMakeup.id}
                         id={veganMakeup.id}
                         name={veganMakeup.name}
@@ -33,7 +33,7 @@ const Dashboard = ({
 
                 {crueltyFreeMakeupData.map((crueltyFreeMakeup) => (
                     <MakeupProduct
-                    addElement={addElement}
+                        addToFavourites={addToFavourites}
                         key={crueltyFreeMakeup.id}
                         id={crueltyFreeMakeup.id}
                         name={crueltyFreeMakeup.name}

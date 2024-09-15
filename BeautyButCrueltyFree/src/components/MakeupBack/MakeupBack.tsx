@@ -1,23 +1,20 @@
 import "./MakeupBack.scss";
-import React, {  useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 
 interface MakeupCardBackProps {
     id: number;
     description: string;
     variant: string;
-    addElement(id: string,heartStatus:boolean): void;
+    addToFavourites(id: string, heartStatus: boolean): void;
 }
 
 const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
     description,
     variant,
     id,
-    addElement
+    addToFavourites,
 }) => {
-
-
     const [fillHeart, setFillHeart] = useState(false);
-
 
     // const handleHeartClick = (): void => {
     //     setFillHeart(!fillHeart);
@@ -29,18 +26,14 @@ const MakeupCardBack: React.FC<MakeupCardBackProps> = ({
     //     }
     // },[!fillHeart])
 
-
     const handleHeartClick = (): void => {
         setFillHeart(!fillHeart);
     };
 
- 
-
     return (
         <div className={`makeupBack makeupBack__${variant}`}>
-            <div 
-              onClick={()=>addElement(`${id}`,fillHeart)}
-                
+            <div
+                onClick={() => addToFavourites(`${id}`, fillHeart)}
                 className="makeupBack__svg"
             >
                 <svg

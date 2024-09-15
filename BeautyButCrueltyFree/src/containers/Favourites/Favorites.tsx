@@ -5,16 +5,16 @@ import "./Favourites.scss";
 interface FavouriteProps {
     cleanedFavouriteCrueltyFreeData: Product[];
     cleanedFavouriteVeganData: Product[];
+    addToFavourites(id: string, heartStatus: boolean): void;
 }
 
 const Favorites = ({
     cleanedFavouriteVeganData,
     cleanedFavouriteCrueltyFreeData,
+    addToFavourites
 }: FavouriteProps) => {
     return (
         <div>
-
-
             <span className="dashboard__content">
                 {cleanedFavouriteVeganData.map((veganMakeup) => (
                     <MakeupProduct
@@ -27,12 +27,7 @@ const Favorites = ({
                         variant="green"
                         product_type={veganMakeup.product_type}
                         product_colors={veganMakeup.product_colors}
-                        addElement={function (
-                            _id: string,
-                            _heartStatus: boolean
-                        ): void {
-                            throw new Error("Function not implemented.");
-                        }}
+                        addToFavourites={addToFavourites}
                     />
                 ))}
 
@@ -47,9 +42,7 @@ const Favorites = ({
                         variant="purple"
                         product_type={crueltyFreeMakeup.product_type}
                         product_colors={crueltyFreeMakeup.product_colors}
-                        addElement={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
+                        addToFavourites={addToFavourites}
                     />
                 ))}
             </span>
