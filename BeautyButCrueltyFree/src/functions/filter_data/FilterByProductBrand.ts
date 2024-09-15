@@ -1,7 +1,7 @@
 import Product from "../../types & interfaces/Product";
 
 export const filteredByProductBrand =(productData: Product[],productBrand: string) => {
-    const filteredProductByTypeData = productData.filter((item) => item.brand && item.brand.includes(productBrand));
+    const filteredProductByTypeData = productData.filter((item) => item.brand && item.brand.includes(productBrand)) 
 
     return filteredProductByTypeData;
 };

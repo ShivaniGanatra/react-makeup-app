@@ -36,108 +36,17 @@
         border: none;
         padding: 10px;
     }
-}
 
-
-.key {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &__content {
-        width: 300px;
-        display: flex;
-        padding: 15px;
-        flex-direction: column;
-        align-items: flex-start;
-        background-image: linear-gradient(white, lighten($octinary-color, 3%));
-        justify-content: center;
-        height: 250px;
-        border-radius: 20px;
-        font-family: Quicksand;
-        text-align: center;
-        position: absolute;
-        z-index: 2;
+    &__center{
+        width: 0px;
+        height: 0px;
     }
-
-    &__item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 7px;
-        gap: 10px;
-    }
-
-    &__shade {
-        width: 30px;
-        height: 30px;
-        background-color: $senary-color;
-
-        &--vegan-crueltyfree {
-            background-color: lighten($septenary-color, 7%);
-        }
-
-        &--vegan {
-            background-color: $senary-color;
-        }
-    }
-}
-
-.pop-up {
-    width: 300px;
-    display: flex;
-    padding: 15px;
-    flex-direction: column;
-    align-items: center;
-    background-image: linear-gradient(white, lighten($primary-color, 1%));
-    justify-content: center;
-    height: auto;
-    border-radius: 20px;
-    font-family: Quicksand;
-    text-align: center;
-    position: absolute;
-    z-index: 2;
-    font-size: 24px;
-
-    &__title {
-        font-family: "Parisienne";
-        font-size: 37px;
-    }
-
-    &__section {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    &__input {
-        height: 35px;
-        border-radius: 15px;
-        border: 4px solid $secondary-color;
-        margin: 15px 0px;
-    }
-
-    &__button {
-        font-family: Quicksand;
-        font-size: 24px;
-        background-image: linear-gradient($secondary-color, lighten($septenary-color, 1%));
-        border: none;
-        padding: 9px;
-        border-radius: 15px;
-
-    }
-}
-
-.nav-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @media screen and (min-width:768px) {
     .nav {
         color: $teriary-color;
-        height: 500px;
+
         display: grid;
         grid-template-rows: 1fr 1fr 1fr 50px;
 
@@ -156,13 +65,5 @@
         }
     }
 
-    .pop-up {
-        display: flex;
-        flex-direction: column;
-        padding: 15px;
-        align-items: center;
-        width: 300px;
-        height: auto;
-        border-radius: 20px;
-    }
+
 }

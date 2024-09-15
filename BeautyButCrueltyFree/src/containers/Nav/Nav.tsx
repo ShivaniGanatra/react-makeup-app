@@ -51,7 +51,7 @@ const Nav = ({ }) => {
 
 
             <h1 className="nav__heading">Beauty but cruelty free</h1>
-            <div className="nav-center">
+            <div className="nav__center">
                 {showNav && (
                     <PopUp toggleNav= {toggleNav} user={user} onSubmit ={onSubmit}/>
                 )}

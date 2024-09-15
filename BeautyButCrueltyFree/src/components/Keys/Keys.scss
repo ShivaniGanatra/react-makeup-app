@@ -1,0 +1,43 @@
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        width: 300px;
+        display: flex;
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        background-image: linear-gradient(white, lighten($octinary-color, 3%));
+        justify-content: center;
+        height: 250px;
+        border-radius: 20px;
+        font-family: Quicksand;
+        text-align: center;
+        position: absolute;
+        z-index: 2;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 7px;
+        gap: 10px;
+    }
+
+    &__shade {
+        width: 30px;
+        height: 30px;
+        background-color: $senary-color;
+
+        &--vegan-crueltyfree {
+            background-color: lighten($septenary-color, 7%);
+        }
+
+        &--vegan {
+            background-color: $senary-color;
+        }
+    }
+}
