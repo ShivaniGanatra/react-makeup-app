@@ -1,5 +1,5 @@
 import "./Nav.scss";
-import Search from "./../../components/Search/Search";
+
 import NavButtons from "./../../components/NavButtons/NavButtons";
 import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,10 +8,8 @@ import Key from "./../../assets/images/key.svg";
 import Keys from "../../components/Keys/Keys";
 import PopUp from "../../components/PopUp/PopUp";
 
-interface NavProps {
-    getTypeOfProductInSearch(product: string): void;
-}
-const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
+
+const Nav = ({ }) => {
     const [showNav, setShowNav] = useState(false);
     
     const toggleNav = () => {
@@ -51,7 +49,6 @@ const Nav: React.FC<NavProps> = ({ getTypeOfProductInSearch }) => {
                 </button>
             </div>
 
-            <Search getTypeOfProductInSearch={getTypeOfProductInSearch} />
 
             <h1 className="nav__heading">Beauty but cruelty free</h1>
             <div className="nav-center">

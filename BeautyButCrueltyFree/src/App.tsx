@@ -92,7 +92,7 @@ const App: React.FC = () => {
 
     return (
         <BrowserRouter>
-            <Nav getTypeOfProductInSearch={getTypeOfProductInSearch} />
+            <Nav/>
 
             <Routes>
                 <Route
@@ -126,6 +126,7 @@ const App: React.FC = () => {
                         <div>
                             {cleanedCrueltyFreeData && cleanedVeganData ? (
                                 <Brands
+                                getTypeOfProductInSearch={getTypeOfProductInSearch}
                                 addToFavourites={addToFavourites}
                                     veganBrands={veganBrands}
                                     crueltyFreeBrands={crueltyFreeBrands}
