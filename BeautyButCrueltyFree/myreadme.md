@@ -1,3 +1,6 @@
+My project is a Makeup app that gives you vegan and cruelty free makeup
+The app on the main page sorts out makeup by face foundation, lips etc, on the brands page there is a search bar where users can search for products and their brands. I have also made two pop ups, one displaying a marketing pop up and one displaying a key pop up(This is because my crueltyfree cards are purple and vegan are green). I have made a favourites page which half works. If the pages are hearted they are displayed in the favourites page. However I cannot seem to stop the heartFill from changing between renders. I have tried using usecallback,useEffect,useMemo, creating my own custom hook, putting my state variable elsewhere and the issue is still persistent.
+
 in card back have scroll menu for descriptions that are too long
 find way to filter in searchbar
 someproducts are vegan && cruelty free maybe sepearte them
@@ -7,7 +10,7 @@ default images for lipsticks
 implement carousel somehow
 map over shades and make circle for a shade if theres time
 
-
+//Below is just my sources 
 //https://stackoverflow.com/questions/72410312/svg-outline-and-fill
 
 // interface exampleObject {

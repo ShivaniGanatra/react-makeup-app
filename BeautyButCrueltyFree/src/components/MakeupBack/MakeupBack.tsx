@@ -1,5 +1,5 @@
 import "./MakeupBack.scss";
-import React, { useState, useMemo } from "react";
+import React, { useState} from "react";
 
 interface MakeupCardBackProps {
     id: number;
