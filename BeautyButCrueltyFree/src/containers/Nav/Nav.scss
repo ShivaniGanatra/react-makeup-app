@@ -37,9 +37,10 @@
         padding: 10px;
     }
 
-    &__center{
-        width: 0px;
-        height: 0px;
+    &__center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

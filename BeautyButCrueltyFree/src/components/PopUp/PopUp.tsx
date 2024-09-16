@@ -1,18 +1,16 @@
 import { FormEventHandler } from "react";
-import "./PopUp.scss"
+import "./PopUp.scss";
 
 interface PopUpProps {
-    toggleNav: () => void
+    toggleNav: () => void;
     user: {
-        Name:string,
-        email:string
-    }
-    onSubmit: FormEventHandler<HTMLFormElement>
+        Name: string;
+        email: string;
+    };
+    onSubmit: FormEventHandler<HTMLFormElement>;
 }
 
-const PopUp = ({toggleNav,user,onSubmit}:PopUpProps) => {
-
-    
+const PopUp = ({ toggleNav, user, onSubmit }: PopUpProps) => {
     return (
         <div>
             <div className="pop-up">
